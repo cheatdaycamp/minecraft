@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang=en xml:lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Jonatan, Zoe, Tarek">
+    <title>
+        Minecraft
+    </title>
+    <link rel="Icon" href="./img/pokeball.png">
+
+    <!--font awesome-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <!--font awesome-->
+
+    <!--BOOTSTRAP 4-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--BOOTSTRAP 4-->
+
+    <!--FONTS-->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,500,600,800&display=swap" rel="stylesheet">
+    <!--FONTS-->
+
+    <!--CSS-->
+    <link rel="stylesheet" href="./css/style.css">
+    <!--CSS-->
+</head>
+
+
+<body class="bkg-white">
+    <!-- ==== CONTAINER  ==== -->
+    <div class="container-wrapper align-items-center justify-content-between">
+
+        <!--WELCOME SCREEN -->
+        <div style="display:flex" id="welcomeScreen">
+            <button id="paint" data-toggle="modal" data-target="#startModal">Start!</button>
+        </div>
+        <!--WELCOME SCREEN -->
+
+        <!--POKEMON THEME ON START BUTTON -->
+        <div class="row h-00px">
+            <audio controls id="audio" width=0px height=0px style="visibility: hidden">
+                <source src="./audio/Pokemon_Theme_Song.mp3" type="audio/mpeg">
+                <source src="./audio/Pokemon_Theme_Song.mp3" type="audio/ogg">
+                       </audio>
+        </div>
+        <!--POKEMON THEME ON START BUTTON -->
+
+        <!-- MODAL -->
+        <div class="modal fade" id="startModal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog  d-flex justify-content-center" role="document">
+                <div class="modal-content ">
+                    <div class="modal-header d-flex justify-content-center">
+                        <h4 class="modal-title" id="exampleModalLabel">Choose your difficulty!</h4>
+
+                    </div>
+                    <div class="modal-body d-flex justify-content-center">
+                        <img alt="pikachu" src="./img/ash.png" id="ash">
+                    </div>
+                    <div class="modal-body d-flex justify-content-around">
+                        <button type="button" id="Easy" class="btn btn-primary buttonlevel" data-dismiss="modal">Easy</button>
+                        <button type="button" id="Intermediate" class="btn btn-primary buttonlevel" data-dismiss="modal">Intermediate</button>
+                        <button type="button" id="Hard" class="btn btn-primary buttonlevel" data-dismiss="modal">Hard</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- MODAL -->
+
+        <!-- ==== HEADER ==== -->
+        <nav class="row navbar fixed navbar-expand-lg navbar d-flex" id="poke-nav">
+            <div class="row">
+                <a class="navbar-brand"> <img class=" logo " src=" ./img/logo.png" alt="Pokemon Logo"></a>
+                <img alt="bulb" src="https://img.icons8.com/office/80/000000/light.png" id="mybulb" />
+            </div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="
+                            #navbarResponsive " aria-controls="navbarResponsive" aria-expanded="false" aria-label=" Toggle
+                            navigation ">
+                <span class=" navbar-toggler-icon "><i class="fas fa-bars"></i></span>
+            </button>
+            <div class=" collapse navbar-collapse justify-content-end" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item black" id="btnNewGame">
+                        <a class="nav-link ">New Game</a>
+                    </li>
+                    <li class="nav-item black" id="exit">
+                        <a class="nav-link">Exit</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <!-- ==== HEADER ==== -->
+
+        <!-- ==== DATA BAR ==== -->
+        <div class="row h-60px justify-content-center align-items-center ">
+            <div class="col-12 text-shadow">
+                Wrong: <span id="wrongNumber">00</span>
+            </div>
+        </div>
+        <!-- ==== DATA BAR ==== -->
+
+        <!-- ==== POKE CARDS ==== -->
+        <div class="cardContainer" id="cardscontainer">
+
+        </div>
+
+        <!-- ==== POKE CARDS ==== -->
+
+        <!-- MODAL -->
+        <div class="modal fade" id="endgame" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="exampleModalLabel">You Won!</h4>
+
+                    </div>
+                    <div class="modal-body">
+                        <img alt="gotcha" src="./img/gotcha.png" id="gotcha">
+                    </div>
+                    <div class="modal-body">
+                        Mistakes: <span id="mistakes"></span>
+
+                    </div>
+                    <div class="modal-body">
+                        <button type="button" class="btn btn-primary buttonlevel" data-dismiss="modal" id="again">Again?</button>
+                        <button type="button" class="btn btn-primary buttonlevel" data-dismiss="modal" id="notagain">No, thanks!</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- MODAL -->
+
+    </div>
+
+    <!--BOOTSTRAP JAVASCRIPT-->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <!--BOOTSTRAP JAVASCRIPT-->
+    <!-- JS -->
+    <script src="./js/main.js"></script>
+    <!-- JS -->
+
+</body>

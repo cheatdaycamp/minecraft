@@ -1,0 +1,23 @@
+@font-face {
+    font-family: PokemonSolid;
+    src: url('../fonts/Pokemon_Solid.ttf')
+}
+
+#message {
+    font-size: 48pt;
+    display: flex;
+    flex-direction: column;
+    background-color: #ffce54;
+    text-align: center;
+    align-content: center;
+    justify-content: center;
+    height: 100%;
+    font-family: PokemonSolid;
+    letter-spacing: .1em;
+}
+
+html {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}

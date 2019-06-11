@@ -1,0 +1,27 @@
+Landing page. In same html file. not redirecting.
+button to the game=> opens modal with div size (
+button to tutorial => opens modal with close button
+
+
+TOOLPALLETTE
+Tool buttons:
+onlick they change the background to show the tool
+deselects previous selected buttons.
+
+Material buttons:
+border color of 1px solid blue, deselect others. 
+
+
+
+Materials:
+Tree (trunk)
+Vegetation (treetop)
+Sky (lightblue color)
+cloud (white color)
+rock
+ground
+
+All the materials work as background image. Each click removes a class and adds another one
+remove all classes: this.className = '';
+then adds the relevant one.
+Reset board
