@@ -1,0 +1,14 @@
+{
+    "parent": "block/cube_top",
+    "textures": {
+        "top": "blocks/jukebox_top",
+        "side": "blocks/jukebox_side"
+    },
+	    "display": {
+        "gui": {
+            "rotation": [ 90, 90, 0 ],
+            "translation": [ 0, 0, 0],
+            "scale":[ 1, 1, 1 ]
+        }
+    }
+}

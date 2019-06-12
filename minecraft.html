@@ -3,9 +3,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="author" content="Jonatan, Zoe, Tarek">
+    <meta name="author" content="Zoe, Tarek, Jonatan">
     <title>
-        Minecraft
+        Minecraft by ZTJ
     </title>
     <link rel="Icon" href="./img/3D-Tree-Minecraft-256.png">
 
@@ -19,26 +19,28 @@
     <!--BOOTSTRAP 4-->
 
     <!--FONTS-->
-    <link href="https://fonts.googleapis.com/css?family=Raleway:400,500,600,800&display=swap" rel="stylesheet">
+
     <!--FONTS-->
 
     <!--CSS-->
     <link rel="stylesheet" href="./css/style.css">
     <!--CSS-->
+
+
 </head>
 
 
 <body>
     <!--WELCOME SCREEN -->
-    <div class="container-flex bkg-landing navbar-fixed-bottom" id="welcomeScreen">
+    <div class="container-flex bkg-landing slider" id="welcomeScreen">
         <div class="row d-flex justify-content-center margin-top-10vh">
             <div class="col-12 col-md-6 d-flex justify-content-center">
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalStartGame">
                     Start Game
                 </button>
+
             </div>
             <div class="col-12 col-md-6 d-flex justify-content-center">
-
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ModalInstructions">
                     Instructions
                 </button>
@@ -46,7 +48,7 @@
         </div>
 
         <!-- Modal: Instructions -->
-        <div class="modal fade" id="ModalInstructions" tabindex="-1" role="dialog" aria-labelledby="ModalInstructions" aria-hidden="true">
+        <div class="modal fade" id="ModalInstructions" tabindex="-1" role="dialog" aria-labelledby="Modal Instructions" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -56,7 +58,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        ...
+                        Instructions here
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -67,7 +69,7 @@
         <!-- Modal: Instructions -->
 
         <!-- Modal: StartGame -->
-        <div class="modal fade" id="modalStartGame" tabindex="-1" role="dialog" aria-labelledby="ModalInstructions" aria-hidden="true">
+        <div class="modal fade" id="modalStartGame" tabindex="-1" role="dialog" aria-labelledby="Modal Start Game" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -77,30 +79,71 @@
                     </button>
                     </div>
                     <div class="modal-body">
-                        nice picture here?
+                        Please choose the size of the board:<br>
+                        <label for="customRange1">Width:</label>
+                        <input type="range" class="custom-range" id="customRange1">
+                        <label for="customRange2">Height:</label>
+                        <input type="range" class="custom-range" id="customRange2">
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Start Game!</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btnStartGame">Start Game!</button>
                     </div>
                 </div>
             </div>
         </div>
         <!-- Modal: StartGame -->
+
     </div>
     <!--WELCOME SCREEN -->
-    <!--WELCOME SCREEN -->
-    <div class="container-flex bkg-landing navbar-fixed-bottom" id="maingame">
-    </div>
+
+    <!--Main Screen -->
+    <div class="container-flex bkg-game01" id="mainScreen" style="display:none">
+        <div class="row mainbar padding5px text-center justify-content-center">
+
+            <!--CANVAS -->
+            <div class="col-12 col-sm-12 col-md-12 col-lg-9 col-xl-10 d-flex  text-center justify-content-center align-items-center minwidthmincontent padding5px">
+                <div id="canvas">
+                </div>
+            </div>
+            <!--CANVAS -->
+
+            <!--TOOL PALLETTE -->
+            <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-2 d-flex justify-content-center align-items-center minwidthmincontent padding5px">
+                <!-- TOOLS -->
+                <div class="row justify-content-center">
+                    <a class="square toolsIcons" id="toolShovel"></a>
+                    <a class="square toolsIcons" id="toolAxe"></a>
+                    <a class="square toolsIcons" id="toolPick"></a>
+                </div>
+                <!-- TOOLS -->
+
+                <!-- INVENTORY -->
+                <div class="row justify-content-center">
+                    <a class="square toolsIcons" id="sky"></a>
+                    <a class="square toolsIcons" id="clouds"></a>
+                    <a class="square toolsIcons" id="earth"></a>
+
+                    <a class="square toolsIcons" id="rock"></a>
+                    <a class="square toolsIcons" id="brick"></a>
+                    <a class="square toolsIcons" id="treeTrunk"></a>
+                    <a class="square toolsIcons" id="treeTop"></a>
+                    <a class="square toolsIcons" id="tnt"></a>
+
+                </div>
+                <!-- INVENTORY -->
+
+            </div>
+            <!--TOOL PALLETTE -->
 
 
-    <!--BOOTSTRAP JAVASCRIPT-->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <!--BOOTSTRAP JAVASCRIPT-->
-    <!-- JS -->
-    <script src="./js/main.js"></script>
-    <!-- JS -->
+            <!--BOOTSTRAP JAVASCRIPT-->
+            <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+            <!--BOOTSTRAP JAVASCRIPT-->
 
+            <!-- JS -->
+            <script src="./js/main.js"></script>
+            <!-- JS -->
 </body>
