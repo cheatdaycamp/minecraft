@@ -9,17 +9,19 @@ onlick they change the background to show the tool
 deselects previous selected buttons.
 
 Material buttons:
-border color of 1px solid blue, deselect others. 
-
-
+border color of 1px solid red, deselect others. 
 
 Materials:
-Tree (trunk)
-Vegetation (treetop)
-Sky (lightblue color)
-cloud (white color)
-rock
-ground
+sky (not an available option to draw, just a default)
+cloud (locked? / shovel?)
+earth (shovel)
+grass (shovel)
+rock (axepick)
+brick (axepick)
+treetrunk (axe)
+treetop (axe)
+tnt (axepick)
+
 
 All the materials work as background image. Each click removes a class and adds another one
 remove all classes: this.className = '';

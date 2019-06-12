@@ -8,7 +8,7 @@
     padding: 0;
     margin-block-start: 0;
     margin-block-end: 0;
-    letter-spacing: .2em
+    letter-spacing: .15em
 }
 
 body {
@@ -41,7 +41,7 @@ body {
     background-color: transparent;
     border: 0, transparent;
     border-color: transparent;
-    transition: all .4s ease-in-out;
+    transition: all .4s linear;
     text-decoration: none
 }
 
@@ -62,18 +62,6 @@ body {
     padding-top: 5vh
 }
 
-.slider {
-    overflow-y: hidden;
-    max-height: 100vh;
-    transition-property: all;
-    transition-duration: .5s;
-    transition-timing-function: cubic-bezier(0, 1, .5, 1)
-}
-
-.opacity-0 {
-    opacity: 0
-}
-
 .bkg-game01 {
     background-color: #000;
     height: 100vh;
@@ -81,52 +69,19 @@ body {
     animation: fadein 4s
 }
 
-a:visited {
+a:visited,
+button:visited {
     text-decoration: none
 }
 
 .row {
     display: flex;
     flex-direction: row;
-    margin: 0!important
-}
-
-h3 {
-    color: #fff;
-    font-size: calc(12pt + 2vw);
-    font-weight: 500;
-    text-align: center;
-    -webkit-font-smoothing: antialiased
-}
-
-p {
-    color: #131313;
-    font-size: 14pt;
-    font-weight: 500;
-    text-align: center;
-    -webkit-font-smoothing: antialiased
-}
-
-.h-60px {
-    height: 60px;
-    width: 100%
-}
-
-.h-30px {
-    height: 30px
-}
-
-.h-00px {
-    height: 00px
 }
 
 .container-flex {
     margin: 0;
     padding: 0
-}
-
-.mainbar {
-    z-index: 999
 }
 
 .padding5px {
@@ -143,180 +98,79 @@ p {
     border: 1px solid #fff;
     background-position: center center;
     background-repeat: no-repeat;
-    background-color: white;
+    background-color: #fff
+}
+
+.textShadowSmall {
+    text-shadow: 0px 0px 8px white;
 }
 
 .materialsIcons {
-    background-size: 100%;
+    background-size: 100%
 }
 
 .toolsIcons {
-    background-size: 80%;
+    background-size: 80%
 }
 
 #toolPick {
-    background-image: url(../img/PNGS/Iron_Hoe.png);
+    background-image: url(../img/PNGS/Iron_Hoe.png)
 }
 
 #toolAxe {
-    background-image: url(../img/PNGS/iron_axe.png);
+    background-image: url(../img/PNGS/iron_axe.png)
 }
 
 #toolShovel {
-    background-image: url(../img/PNGS/Iron_Shovel.png);
+    background-image: url(../img/PNGS/Iron_Shovel.png)
 }
 
 #clouds {
-    background-image: url(../img/PNGS/clouds.png);
+    background-image: url(../img/PNGS/clouds.png)
 }
 
 #sky {
-    background-image: url(../img/PNGS/sky.png);
+    background-image: url(../img/PNGS/sky.png)
 }
 
 #earth {
-    background-image: url(../img/PNGS/dirt.png);
+    background-image: url(../img/PNGS/dirt.png)
 }
 
 #grass {
-    background-image: url(../img/PNGS/grass.png);
+    background-image: url(../img/PNGS/grass.png)
 }
 
 #rock {
-    background-image: url(../img/PNGS/rock02.png);
+    background-image: url(../img/PNGS/rock02.png)
 }
 
 #brick {
-    background-image: url(../img/PNGS/bircks03.png);
+    background-image: url(../img/PNGS/bircks03.png)
 }
 
 #treeTrunk {
-    background-image: url(../img/PNGS/trunk.png);
+    background-image: url(../img/PNGS/trunk.png)
 }
 
 #treeTop {
-    background-image: url(../img/PNGS/leaves.png);
+    background-image: url(../img/PNGS/leaves.png)
 }
 
 #tnt {
-    background-image: url(../img/PNGS/tnt.png);
-}
-
-#color2 {
-    background-color: #ccc
-}
-
-#color3 {
-    background-color: #b3b3b3
-}
-
-#color4 {
-    background-color: #999
-}
-
-#color5 {
-    background-color: grey
-}
-
-#color6 {
-    background-color: #666
-}
-
-#color7 {
-    background-color: #4d4d4d
-}
-
-#color8 {
-    background-color: #333
-}
-
-#color9 {
-    background-color: #1a1a1a
-}
-
-#color10 {
-    background-color: #000
-}
-
-#color11 {
-    background-color: #d8334a
-}
-
-#color12 {
-    background-color: #ed5565
-}
-
-#color13 {
-    background-color: #fc6e51
-}
-
-#color14 {
-    background-color: #ffce54
-}
-
-#color15 {
-    background-color: #e8ce4d
-}
-
-#color16 {
-    background-color: #a0d468
-}
-
-#color17 {
-    background-color: #2ecc71
-}
-
-#color18 {
-    background-color: #48cfad
-}
-
-#color19 {
-    background-color: #a0cecb
-}
-
-#color20 {
-    background-color: #4fc1e9
-}
-
-#eraser {
-    color: #fff
-}
-
-a:hover,
-i:hover {
-    opacity: 1;
-    cursor: pointer
+    background-image: url(../img/PNGS/tnt.png)
 }
 
 .square:hover {
+    opacity: 1;
+    cursor: pointer;
     -webkit-box-shadow: 0 0 8px 1px rgba(255, 255, 255, 1);
     -moz-box-shadow: 0 0 8px 1px rgba(255, 255, 255, 1);
     box-shadow: 0 0 8px 1px rgba(255, 255, 255, 1)
 }
 
-a .fas:hover {
-    text-shadow: 0 0 8px #fff
-}
-
 .minwidthmincontent {
     width: min-content
-}
-
-.fas {
-    color: #fff;
-    opacity: .7
-}
-
-.sizesmall {
-    font-size: 8pt
-}
-
-.sizemedium {
-    font-size: 12pt
-}
-
-.sizelarge {
-    font-size: 16pt
 }
 
 #canvas {
@@ -326,33 +180,10 @@ a .fas:hover {
     background-color: #fff;
     opacity: 1;
     overflow: hidden;
-    webkit-box-shadow: 0px 0px 82px -24px white;
-    -moz-box-shadow: 0px 0px 82px -24px white;
-    box-shadow: 0px 0px 82px -24px white;
+    webkit-box-shadow: 0 0 82px -24px #fff;
+    -moz-box-shadow: 0 0 82px -24px #fff;
+    box-shadow: 0 0 82px -24px #fff;
     border: 1px solid #000
-}
-
-#inputBlue,
-#inputGreen,
-#inputRed {
-    width: 50px
-}
-
-p span {
-    color: #fff;
-    font-size: 12pt
-}
-
-.margin0px {
-    margin: 0
-}
-
-#colorWheel {
-    background-image: url(../img/colorwheel02.png);
-    background-repeat: no-repeat;
-    overflow: auto;
-    background-position: center;
-    background-color: ""
 }
 
 @keyframes fadein {
