@@ -6,6 +6,16 @@ $(document).ready(function() {
         };
 
         minecraft.bindMenuActions = function() {
+                var inventorySky,
+                    inventoryClouds,
+                    inventoryTnt,
+                    inventoryEarth,
+                    inventoryGrass,
+                    inventoryRock,
+                    inventoryBrick,
+                    inventorywood,
+                    inventoryLeaves;
+
 
                 //Button - On Modal startGame - Starts new game
                 $('#btnStartGame').click(minecraft.startGame);
@@ -22,19 +32,22 @@ $(document).ready(function() {
             minecraft.resetMaterials();
             minecraft.generateSquares();
         }
+
+        // function to reset the inventory
         minecraft.resetMaterials = function() {
+            // add counters here
             $('.square span').html(0);
             $('#clouds span').html(8);
             $('#earth span').html(5);
             $('#grass span').html(3);
             $('#rock span').html(4);
             $('#brick span').html(5);
-            $('#treeTrunk span').html(3);
-            $('#treeTop span').html(4);
+            $('#wood span').html(3);
+            $('#leaves span').html(4);
             $('#tnt span').html(3);
         };
         minecraft.generateSquares = function() {
-            var unitSize = "20px",
+            var unitSize = "40px",
                 bricksOnWidth = parseInt($('#canvas').width() / parseInt(unitSize)),
                 bricksOnHeight = parseInt($('#canvas').height() / parseInt(unitSize)),
                 canvasArea = bricksOnWidth * bricksOnHeight
@@ -50,3 +63,18 @@ $(document).ready(function() {
         minecraft.start();
 
     }) //document readyx;
+
+
+
+function() {
+
+    asjdasdgk
+] a
+lsdoajsdasd
+alsdaks
+local
+var = parseInt($('#rock span').html(4)) + 1;
+$()
+
+
+}
