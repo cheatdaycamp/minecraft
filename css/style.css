@@ -192,6 +192,11 @@ button:visited {
     background-image: url(../img/PNGS/tnt.png)
 }
 
+.temporaryclass {
+    width: 40px;
+    height: 40px;
+}
+
 .square:hover {
     opacity: 1;
     cursor: pointer;

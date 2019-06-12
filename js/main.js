@@ -23,14 +23,30 @@ $(document).ready(function() {
                 //Button - On Main - Resets the board
                 $('#btnReset').click(minecraft.resetMaterials);
 
+                $('.toolsIcons').click(function() {
+                    minecraft.removeMaterial.call(this);
+                    minecraft.buttonClassFade("toolsIcons");
+
+                })
             } // end bind
+
+        minecraft.buttonClassFade = function(someclass) {
+            var self = event.target.id;
+            console.log(self)
+            $(document.getElementsByClassName(someclass)).fadeTo('slow', '.2');
+            $(document.getElementById(self)).fadeTo("fast", 1)
+        }
+
+        minecraft.removeMaterial = function() {
+
+        }
 
         minecraft.startGame = function() {
             $('#welcomeScreen').addClass('opacity-0');
             $('#mainScreen').show()
             $('#welcomeScreen').hide()
             minecraft.resetMaterials();
-            minecraft.generateSquares();
+            // minecraft.generateSquares();
         }
 
         // function to reset the inventory
@@ -63,18 +79,3 @@ $(document).ready(function() {
         minecraft.start();
 
     }) //document readyx;
-
-
-
-function() {
-
-    asjdasdgk
-] a
-lsdoajsdasd
-alsdaks
-local
-var = parseInt($('#rock span').html(4)) + 1;
-$()
-
-
-}
