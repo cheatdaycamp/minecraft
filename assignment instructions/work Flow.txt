@@ -1,0 +1,65 @@
+LANDING PAGE
+
+- Write instructions, and set a class for them. Can't be with the same font, it is unreadable.
+Some kind of 'pixel' or 'milenium 2000' font would be my approach.
+- Less important: the background image in fact are 2 background images. The first one gets replaced when the device is smaller than 998.98px wide.
+It should be just one background with an image element that gets its size from the viewport using the measure vmin.
+It shoulbe squared, so we can say width: 30vmin for example, and also for the heigth:30vmin
+and that way we dont worry how it would look on portrait/landscape devices.
+
+MAIN
+- Bootstrap the main.
+- Add Iron Sword button (for removing clouds and dynamite). It is located on ../img/PNGS/Iron_Sword.png
+
+JS
+- Change the name of minecraft.start for something more representative
+- Generate a double loop for the canvas creation. the first loop creates "rows".
+As many rows as unitsOnHeight variable. each row would get an id like "canvasRow"+number[i] of the loop +1 (to start to count from 1)
+
+For each row(new loop with j), create a div and append. the id would be ${row-id + number[i]} of the loop.
+it is very important to add the row id because otherwise we would have duplicated IDS.
+
+- For each toolIcon should be a specific function .removeClass for 2 elements and addclass for sky.
+
+classes to remove for each tool
+sky (Default. whenever a class is removed, sky class is added)
+cloud (sword)
+earth (shovel)
+grass (shovel)
+rock (axepick)
+brick (axepick)
+treetrunk (axe)
+treetop (axe)
+tnt (sword)
+
+- Function for "turning" on buttons:
+I used something on the paint app that could be usefull here: it is a function that given a specific class turns off
+(a.k.a sets opacity to .7) to all elements of the class, except for that one that triggered the function, 
+that sets it to 1. That way that button looks like active and the other like desactivated. It is triggered on click on each
+element.
+
+I think that it could be usefull for when a shovel/sword/axe/pick is selected, and also for the
+material. WHen one is selected, the other ones are deselected.
+
+// function for 'turning off' icons when another one is clicked (should be re written in jquery)
+paintApp.opacityLoop = function(event, array) {
+    var l = array.length,
+        i = 0;
+    for (i; i < l; i++) {
+        if (array[i].id !== event.target.id)
+            array[i].style.opacity = .7;
+    }
+	event.target.style.opacity = 1;
+}
+
+(actually, just grabbint the whole class in jquery, turning it to 0.7 and then turning to 1 'this' is also shorter and no need for loop)
+
+
+- All the materials trigger the same function, that removes all the classes of the div (except border // or removes all then adds border again)
+and adds the same class as the material button. That way, one function to all the materials.
+- For the shovel, pick, axe, sword we can define manually which classes they remove.
+ORRRRR we can create an object "toolbox" which has all the tools (constructor: name, classes that remove. Method: add sky) and then set one unique function
+that when triggered grabs all the classes that 'this' can remove. if it matches with the div, it removes it and executes toolbox.addsky. if not, we play a wrong sound, change the background color of the tool to red for 1 second, or something.
+
+
+
