@@ -46,57 +46,55 @@
                 </button>
             </div>
         </div>
-
-        <!-- Modal: Instructions -->
-        <div class="modal fade" id="ModalInstructions" tabindex="-1" role="dialog" aria-labelledby="Modal Instructions" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Instructions</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        Instructions here
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Modal: Instructions -->
-
-        <!-- Modal: StartGame -->
-        <div class="modal fade" id="modalStartGame" tabindex="-1" role="dialog" aria-labelledby="Modal Start Game" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Start Game</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    </div>
-                    <div class="modal-body">
-                        Please choose the size of the board:<br>
-                        <label for="customRange1">Width:</label>
-                        <input type="range" class="custom-range" id="customRange1">
-                        <label for="customRange2">Height:</label>
-                        <input type="range" class="custom-range" id="customRange2">
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btnStartGame">Start Game!</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Modal: StartGame -->
-
     </div>
     <!--WELCOME SCREEN -->
 
+    <!-- Modal: Instructions -->
+    <div class="modal fade" id="ModalInstructions" tabindex="-1" role="dialog" aria-labelledby="Modal Instructions" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Instructions</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                    Instructions here
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal: Instructions -->
+
+    <!-- Modal: StartGame -->
+    <div class="modal fade" id="modalStartGame" tabindex="-1" role="dialog" aria-labelledby="Modal Start Game" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Start Game</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+                </div>
+                <div class="modal-body">
+                    Please choose the size of the board:<br>
+                    <label for="customRange1">Width:</label>
+                    <input type="range" class="custom-range" id="customRange1">
+                    <label for="customRange2">Height:</label>
+                    <input type="range" class="custom-range" id="customRange2">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btnStartGame">Start Game!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal: StartGame -->
     <!--Main Screen -->
     <div class="container-flex bkg-game01" id="mainScreen" style="display:none">
         <div class="row padding5px text-center justify-content-center">
@@ -111,26 +109,26 @@
             <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-2 d-flex justify-content-center align-items-center minwidthmincontent padding5px">
                 <!-- TOOLS -->
                 <div class="row justify-content-center">
-                    <a class="square toolsIcons" id="toolShovel"></a>
-                    <a class="square toolsIcons" id="toolAxe"></a>
-                    <a class="square toolsIcons" id="toolPick"></a>
+                    <a class="square toolsIcons toolShovel" id="toolShovel"></a>
+                    <a class="square toolsIcons toolAxe" id="toolAxe"></a>
+                    <a class="square toolsIcons toolPick" id="toolPick"></a>
                 </div>
                 <!-- TOOLS -->
 
                 <!-- INVENTORY -->
                 <div class="row justify-content-center">
                     <!-- <a class="square materialsIcons" id="sky"></a> -->
-                    <a class="square materialsIcons" id="clouds"><span class="textShadowSmall">88</span></a>
-                    <a class="square materialsIcons" id="earth"><span class="textShadowSmall">99</span></a>
-                    <a class="square materialsIcons" id="grass"><span class="textShadowSmall">66</span></a>
-                    <a class="square materialsIcons" id="rock"><span class="textShadowSmall">77</span></a>
-                    <a class="square materialsIcons" id="brick"><span class="textShadowSmall">00</span></a>
-                    <a class="square materialsIcons" id="treeTrunk"><span class="textShadowSmall">00</span></a>
-                    <a class="square materialsIcons" id="treeTop"><span class="textShadowSmall">00</span></a>
-                    <a class="square materialsIcons" id="tnt"><span class="textShadowSmall">00</span></a>
+                    <a class="square materialsIcons clouds" id="clouds"><span class="textShadowSmall">88</span></a>
+                    <a class="square materialsIcons earth" id="earth"><span class="textShadowSmall">99</span></a>
+                    <a class="square materialsIcons grass" id="grass"><span class="textShadowSmall">66</span></a>
+                    <a class="square materialsIcons rock" id="rock"><span class="textShadowSmall">77</span></a>
+                    <a class="square materialsIcons brick" id="brick"><span class="textShadowSmall">00</span></a>
+                    <a class="square materialsIcons treeTrunk" id="treeTrunk"><span class="textShadowSmall">00</span></a>
+                    <a class="square materialsIcons treeTop" id="treeTop"><span class="textShadowSmall">00</span></a>
+                    <a class="square materialsIcons tnt" id="tnt"><span class="textShadowSmall">00</span></a>
 
-                    <button type="button" class="btn btn-secondary">Reset</button>
-                    <button type="button" class="btn btn-secondary ">instructions</button>
+                    <button type="button" class="btn btn-secondary" id="btnReset">Reset</button>
+                    <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#ModalInstructions">instructions</button>
                 </div>
                 <!-- INVENTORY -->
 

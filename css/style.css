@@ -113,51 +113,51 @@ button:visited {
     background-size: 80%
 }
 
-#toolPick {
+.toolPick {
     background-image: url(../img/PNGS/Iron_Hoe.png)
 }
 
-#toolAxe {
+.toolAxe {
     background-image: url(../img/PNGS/iron_axe.png)
 }
 
-#toolShovel {
+.toolShovel {
     background-image: url(../img/PNGS/Iron_Shovel.png)
 }
 
-#clouds {
+.clouds {
     background-image: url(../img/PNGS/clouds.png)
 }
 
-#sky {
+.sky {
     background-image: url(../img/PNGS/sky.png)
 }
 
-#earth {
+.earth {
     background-image: url(../img/PNGS/dirt.png)
 }
 
-#grass {
+.grass {
     background-image: url(../img/PNGS/grass.png)
 }
 
-#rock {
+.rock {
     background-image: url(../img/PNGS/rock02.png)
 }
 
-#brick {
+.brick {
     background-image: url(../img/PNGS/bircks03.png)
 }
 
-#treeTrunk {
+.treeTrunk {
     background-image: url(../img/PNGS/trunk.png)
 }
 
-#treeTop {
+.treeTop {
     background-image: url(../img/PNGS/leaves.png)
 }
 
-#tnt {
+.tnt {
     background-image: url(../img/PNGS/tnt.png)
 }
 
@@ -174,16 +174,26 @@ button:visited {
 }
 
 #canvas {
-    width: 500px;
+    width: 400px;
     position: relative;
-    height: 500px;
+    height: 400px;
     background-color: #fff;
     opacity: 1;
+    display: flex;
+    flex-wrap: wrap;
     overflow: hidden;
     webkit-box-shadow: 0 0 82px -24px #fff;
     -moz-box-shadow: 0 0 82px -24px #fff;
     box-shadow: 0 0 82px -24px #fff;
-    border: 1px solid #000
+}
+
+#canvas div:hover {
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+.borderDivs {
+    background-color: red;
 }
 
 @keyframes fadein {

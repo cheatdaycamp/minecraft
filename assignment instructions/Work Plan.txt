@@ -22,8 +22,10 @@ treetrunk (axe)
 treetop (axe)
 tnt (axepick)
 
-
 All the materials work as background image. Each click removes a class and adds another one
 remove all classes: this.className = '';
 then adds the relevant one.
 Reset board
+
+
+// notes: the canvas can't have any border!!! If so, pixels are taken out of the equation for the bricks.git 

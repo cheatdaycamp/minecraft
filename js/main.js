@@ -7,62 +7,46 @@ $(document).ready(function() {
 
         minecraft.bindMenuActions = function() {
 
+                //Button - On Modal startGame - Starts new game
+                $('#btnStartGame').click(minecraft.startGame);
 
-
-                //button - On welcome screen - Closes welcome screen at the start
-                $('#paint').click(minecraft.closeWelcomeScreen);
-
-                //button - On navbar - Closes the game
-                $('#exit').click(minecraft.redirecthtml);
-
-                //Button - On navbar - Starts new game
-                $('#btnNewGame').click(function() {
-                    $('#startModal').modal('show')
-                });
-
-                //button - Inside YouWon Modal - Starts new game
-                $('#again').click(function() {
-                    $('#startModal').modal('show')
-                });
-
-                //button - Inside YouWon Modal - Takes you to 'thanks for playing' page.
-                $('#notagain').click(minecraft.redirecthtml);
-
-                //level buttons => grab level and start game.
-                $('.buttonlevel').click(function() {
-                    minecraft.startPlaying.call(this);
-                });
-
-                //button change theme
-                $('#mybulb').click(function() {
-                    if ($("#mybulb").attr("src") == "https://img.icons8.com/office/80/000000/light.png") {
-                        $("#mybulb").attr("src", "https://img.icons8.com/ultraviolet/80/000000/light.png");
-                        $('.back-face').attr('src', "./img/ultraball.png");
-                        $('.back-face').css('background', 'black');
-                        $('.front-face').css('background', 'black');
-
-
-                    } else {
-                        $("#mybulb").attr("src", "https://img.icons8.com/office/80/000000/light.png");
-                        $('.back-face').attr('src', "./img/pokeball.png");
-                        $('.back-face').css('background', '#ffce54');
-                        $('.front-face').css('background', '#ffce54');
-
-                    }
-                    $('body').toggleClass('bkg-yellow');
-                    $('body').toggleClass('bkg-white');
-                });
+                //Button - On Main - Resets the board
+                $('#btnReset').click(minecraft.resetMaterials);
 
             } // end bind
-        $('#btnStartGame').click(function() {
+
+        minecraft.startGame = function() {
             $('#welcomeScreen').addClass('opacity-0');
             $('#mainScreen').show()
+            $('#welcomeScreen').hide()
+            minecraft.resetMaterials();
+            minecraft.generateSquares();
+        }
+        minecraft.resetMaterials = function() {
+            $('.square span').html(0);
+            $('#clouds span').html(8);
+            $('#earth span').html(5);
+            $('#grass span').html(3);
+            $('#rock span').html(4);
+            $('#brick span').html(5);
+            $('#treeTrunk span').html(3);
+            $('#treeTop span').html(4);
+            $('#tnt span').html(3);
+        };
+        minecraft.generateSquares = function() {
+            var unitSize = "20px",
+                bricksOnWidth = parseInt($('#canvas').width() / parseInt(unitSize)),
+                bricksOnHeight = parseInt($('#canvas').height() / parseInt(unitSize)),
+                canvasArea = bricksOnWidth * bricksOnHeight
+            console.log(canvasArea);
+            for (var i = 0; i < canvasArea; i++) {
+                $('#canvas').append($('<div>', { class: 'sky' }));
+            }
+            $('#canvas div').width(unitSize);
+            $('#canvas div').height(unitSize);
 
-            setTimeout(() => {
-                $('#welcomeScreen').hide()
-            }, 100);
-        });
+        }
 
-
+        minecraft.start();
 
     }) //document readyx;
