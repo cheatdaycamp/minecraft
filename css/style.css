@@ -6,9 +6,21 @@
 * {
     margin: 0;
     padding: 0;
+    padding-right: 0;
+    padding-left: 0;
     margin-block-start: 0;
     margin-block-end: 0;
     letter-spacing: .15em
+}
+
+[class*='col-'] {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+html {
+    overflow: hidden;
+    height: 100vh;
 }
 
 body {
@@ -23,17 +35,27 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #000
+    background-color: #000;
+    overflow: hidden;
+}
+
+.h-30px {
+    height: 30px;
+}
+
+.logoMinecraft {
+    height: 80vmin;
+    width: 80vmin;
 }
 
 .bkg-landing {
-    background-image: url(../img/bkg_02.jpg);
+    background-image: url(../img/concrete.jpg);
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
-    width: 100vw;
-    height: 100vh;
-    transition: all .4s ease-in-out
+    transition: all .4s ease-in-out;
+    width: 100%;
+    height: 100%;
 }
 
 .btn-primary {
@@ -74,6 +96,10 @@ button:visited {
     text-decoration: none
 }
 
+.asd {
+    height: calc(100vh - 46px)
+}
+
 .row {
     display: flex;
     flex-direction: row;
@@ -81,7 +107,8 @@ button:visited {
 
 .container-flex {
     margin: 0;
-    padding: 0
+    padding: 0;
+    height: 100vh;
 }
 
 .padding5px {
@@ -123,6 +150,10 @@ button:visited {
 
 .toolShovel {
     background-image: url(../img/PNGS/Iron_Shovel.png)
+}
+
+.toolSword {
+    background-image: url(../img/PNGS/Iron_Sword.png)
 }
 
 .clouds {
@@ -202,11 +233,5 @@ button:visited {
     }
     to {
         opacity: 1
-    }
-}
-
-@media (max-width:991.98px) {
-    .bkg-landing {
-        background-image: url(../img/bkg_02_mobile.jpg)
     }
 }
