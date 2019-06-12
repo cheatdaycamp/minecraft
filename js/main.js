@@ -6,15 +6,16 @@ $(document).ready(function() {
         };
 
         minecraft.bindMenuActions = function() {
-                var inventorySky,
-                    inventoryClouds,
-                    inventoryTnt,
-                    inventoryEarth,
-                    inventoryGrass,
-                    inventoryRock,
-                    inventoryBrick,
-                    inventorywood,
-                    inventoryLeaves;
+                minecraft.inventorySky = "",
+                    minecraft.inventoryClouds,
+                    minecraft.inventoryTnt,
+                    minecraft.inventoryEarth,
+                    minecraft.inventoryGrass,
+                    minecraft.inventoryRock,
+                    minecraft.inventoryBrick,
+                    minecraft.inventorywood,
+                    minecraft.inventoryLeaves,
+                    minecraft.currentTool = "";
 
 
                 //Button - On Modal startGame - Starts new game
@@ -23,18 +24,23 @@ $(document).ready(function() {
                 //Button - On Main - Resets the board
                 $('#btnReset').click(minecraft.resetMaterials);
 
-                $('.toolsIcons').click(function() {
-                    minecraft.removeMaterial.call(this);
-                    minecraft.buttonClassFade("toolsIcons");
+                $('.square').click(function() {
+                    // minecraft.removeMaterial.call(this);
+                    minecraft.buttonClassFade("square");
 
                 })
             } // end bind
 
         minecraft.buttonClassFade = function(someclass) {
-            var self = event.target.id;
-            console.log(self)
-            $(document.getElementsByClassName(someclass)).fadeTo('slow', '.2');
-            $(document.getElementById(self)).fadeTo("fast", 1)
+            console.log("entry tool: " + minecraft.currentTool)
+            if (minecraft.currentTool !== event.target.id) {
+                minecraft.currentTool = event.target.id;
+                $(document.getElementsByClassName(someclass)).fadeTo('fast', '.2');
+                $(document.getElementById(minecraft.currentTool)).fadeTo("fast", 1);
+                console.log(minecraft.currentTool)
+            }
+            return minecraft.currentTool;
+
         }
 
         minecraft.removeMaterial = function() {
@@ -52,15 +58,14 @@ $(document).ready(function() {
         // function to reset the inventory
         minecraft.resetMaterials = function() {
             // add counters here
-            $('.square span').html(0);
-            $('#clouds span').html(8);
-            $('#earth span').html(5);
-            $('#grass span').html(3);
-            $('#rock span').html(4);
-            $('#brick span').html(5);
-            $('#wood span').html(3);
-            $('#leaves span').html(4);
-            $('#tnt span').html(3);
+            $('#clouds').html(8);
+            $('#earth').html(5);
+            $('#grass').html(3);
+            $('#rock').html(4);
+            $('#brick').html(5);
+            $('#wood').html(3);
+            $('#leaves').html(4);
+            $('#tnt').html(3);
         };
         minecraft.generateSquares = function() {
             var unitSize = "40px",
