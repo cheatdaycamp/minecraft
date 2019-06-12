@@ -133,11 +133,25 @@ p {
     padding: 5px
 }
 
-.toolsIcons {
-    background-size: 80%;
+.square {
+    width: 40px;
+    height: 40px;
+    border-radius: 3px;
+    display: block;
+    margin: 0 3px;
+    opacity: .7;
+    border: 1px solid #fff;
     background-position: center center;
     background-repeat: no-repeat;
     background-color: white;
+}
+
+.materialsIcons {
+    background-size: 100%;
+}
+
+.toolsIcons {
+    background-size: 80%;
 }
 
 #toolPick {
@@ -150,6 +164,42 @@ p {
 
 #toolShovel {
     background-image: url(../img/PNGS/Iron_Shovel.png);
+}
+
+#clouds {
+    background-image: url(../img/PNGS/clouds.png);
+}
+
+#sky {
+    background-image: url(../img/PNGS/sky.png);
+}
+
+#earth {
+    background-image: url(../img/PNGS/dirt.png);
+}
+
+#grass {
+    background-image: url(../img/PNGS/grass.png);
+}
+
+#rock {
+    background-image: url(../img/PNGS/rock02.png);
+}
+
+#brick {
+    background-image: url(../img/PNGS/bircks03.png);
+}
+
+#treeTrunk {
+    background-image: url(../img/PNGS/trunk.png);
+}
+
+#treeTop {
+    background-image: url(../img/PNGS/leaves.png);
+}
+
+#tnt {
+    background-image: url(../img/PNGS/tnt.png);
 }
 
 #color2 {
@@ -230,16 +280,6 @@ p {
 
 #eraser {
     color: #fff
-}
-
-.square {
-    width: 50px;
-    height: 50px;
-    border-radius: 3px;
-    display: block;
-    margin: 0 5px;
-    opacity: .7;
-    border: 2px solid #fff
 }
 
 a:hover,
