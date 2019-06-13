@@ -87,3 +87,104 @@ $(document).ready(function() {
         minecraft.start();
 
     }) //document readyx;
+
+//added
+class Arraynew {
+    constructor(length) {
+        this.length = length;
+    }
+    createArray() {
+        var arraynew2 = [];
+        for (var i = 0; i < this.length; i++) {
+            arraynew2.push(i);
+        }
+        return arraynew2;
+    }
+    matrix(array) {
+        var outerArray = this.createArray();
+        var innerArray = array.createArray();
+        for (var i = 0; i < this.length; i++) {
+            outerArray.splice(i, 1, innerArray);
+        }
+        return outerArray;
+    }
+}
+var array1 = new Arraynew(50);
+var array2 = new Arraynew(21);
+
+var matrixBackground = array1.matrix(array2);
+
+function createTiles(array) {
+    for (var i = 0; i < array.length; i++) {
+        $('#canvas').append('<div class="second_' + i + 1 + ' tile tileSky" ></div>');
+
+
+        for (var j = 0; j < array[i].length; j++) {
+
+            $('#canvas').append('<div class="second_' + i + 1 + ' tile tileSky" ></div>');
+
+
+        }
+    }
+}
+createTiles(matrixBackground);
+
+//added tarek
+
+
+
+grass();
+
+function grass() {
+    for (var i = 151; i < 152; i++) {
+
+        var grass = $(".second_" + i);
+        grass.removeClass("tileSky");
+        grass.addClass("grass");
+    }
+}
+
+grass();
+
+function earth() {
+    for (var i = 171; i < 300; i++) {
+
+        var earth = $(".second_" + i);
+        earth.removeClass("tileSky");
+        earth.addClass("earth");
+    }
+}
+
+earth();
+// function wood() {
+//     for (var i = 40; i < 80; i++) {
+
+//         var wood = $("#first_");
+//         wood.removeClass("tileSky");
+//         wood.addClass("wood");
+//     }
+// }
+
+// wood();
+
+// function earth() {
+//     for (var i = 0; i < 10; i++) {
+
+//         var earth = $(".tile");
+//         earth.removeClass("tileSky");
+//         earth.addClass("earth");
+//     }
+// }
+
+// earth();
+
+// function rock() {
+//     for (var i = 0; i < 10; i++) {
+
+//         var tree = $(".tile");
+//         tree.removeClass("tileSky");
+//         tree.addClass("rock");
+//     }
+// }
+
+// rock();

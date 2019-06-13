@@ -288,8 +288,8 @@ button:visited {
 }
 
 #canvas {
-    width: 400px;
-    height: 400px;
+    width: 800px;
+    height: 800px;
     background-color: #fff;
     display: flex;
     flex-wrap: wrap;
@@ -353,4 +353,18 @@ button:visited {
 }
 
 
+/* tarek css */
+
+.tile {
+    height: 30px;
+    width: 30px;
+    border: 1px solid white;
+    display: inline-block;
 }
+
+.tileSky {
+    background-color: lightblue;
+}
+
+
+/* tarek css */
