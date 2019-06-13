@@ -1,4 +1,4 @@
-@font-face {
+<<<<<<< HEAD @font-face {
     font-family: Minecraft;
     src: url(../fonts/Minecrafter.Alt.ttf)
 }
@@ -276,3 +276,268 @@ body {
 
 
 /* tarek */
+
+=======@font-face {
+    font-family: Minecraft;
+    src: url(../fonts/Minecrafter.Alt.ttf)
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    padding-right: 0;
+    padding-left: 0;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    letter-spacing: .15em
+}
+
+[class*='col-'] {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+html {
+    /* overflow: hidden; */
+    height: 100vh;
+    width: 100vw;
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+    font-family: Minecraft;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    /* overflow: hidden; */
+}
+
+.wrapper .landingPageButtonWrapper {
+    padding-top: 40px;
+}
+
+.logoMinecraft {
+    display: block;
+    height: 80vmin;
+    width: 80vmin;
+}
+
+.logoholder {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+.bkg-landing {
+    background-image: url(../img/concrete.jpg);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: all .4s ease-in-out;
+    width: 100%;
+    height: 100%;
+}
+
+.btn-primary {
+    color: #000;
+    background-color: transparent;
+    border: 0, transparent;
+    border-color: transparent;
+    transition: all .4s linear;
+    text-decoration: none
+}
+
+.btn-primary:hover {
+    transform: scale(1.2);
+    background-color: transparent;
+    border: 0, transparent;
+    border-color: transparent;
+    text-shadow: 0 0 15px #000
+}
+
+.btn-primary:focus {
+    outline: 0;
+    border: 0
+}
+
+.margin-top-10vh {
+    padding-top: 5vh
+}
+
+.bkg-game01 {
+    background-image: ;
+    height: 100vh;
+    width: 100vw;
+    animation: fadein 4s
+}
+
+a:visited,
+button:visited {
+    text-decoration: none
+}
+
+.asd {
+    height: calc(100vh - 46px)
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    padding: 0px;
+    margin: 0px;
+    width: auto;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+.padding5px {
+    padding: 5px
+}
+
+.margin-5px-0px {
+    margin: 5px 0px;
+}
+
+.btn-secondary .square {
+    width: 40px;
+    height: 40px;
+    border-radius: 3px;
+    display: block;
+    margin: 0 5px;
+    border: 1px solid #fff;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: #fff
+}
+
+.textShadowSmall {
+    text-shadow: 0px 0px 8px white;
+}
+
+.materialsIcons {
+    background-size: 100%
+}
+
+.toolsIcons {
+    background-size: 80%
+}
+
+.toolPick {
+    background-image: url(../img/PNGS/Iron_Hoe.png)
+}
+
+.toolAxe {
+    background-image: url(../img/PNGS/iron_axe.png)
+}
+
+.toolShovel {
+    background-image: url(../img/PNGS/Iron_Shovel.png)
+}
+
+.toolSword {
+    background-image: url(../img/PNGS/Iron_Sword.png)
+}
+
+.clouds {
+    background-image: url(../img/PNGS/clouds.png)
+}
+
+.sky {
+    background-image: url(../img/PNGS/sky.png)
+}
+
+.earth {
+    background-image: url(../img/PNGS/dirt.png)
+}
+
+.grass {
+    background-image: url(../img/PNGS/grass.png)
+}
+
+.rock {
+    background-image: url(../img/PNGS/rock02.png)
+}
+
+.brick {
+    background-image: url(../img/PNGS/bircks03.png)
+}
+
+.wood {
+    background-image: url(../img/PNGS/trunk.png)
+}
+
+.leaves {
+    background-image: url(../img/PNGS/leaves.png)
+}
+
+.tnt {
+    background-image: url(../img/PNGS/tnt.png)
+}
+
+.temporaryclass {
+    width: 40px;
+    height: 40px;
+}
+
+.square:hover {
+    opacity: .9;
+    cursor: pointer;
+    -webkit-box-shadow: 0 0 8px 1px rgba(255, 255, 255, 1);
+    -moz-box-shadow: 0 0 8px 1px rgba(255, 255, 255, 1);
+    box-shadow: 0 0 8px 1px rgba(255, 255, 255, 1)
+}
+
+.minwidthmincontent {
+    width: min-content
+}
+
+#canvas {
+    width: 400px;
+    position: relative;
+    height: 400px;
+    background-color: #fff;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+    webkit-box-shadow: 0 0 82px -24px #fff;
+    -moz-box-shadow: 0 0 82px -24px #fff;
+    box-shadow: 0 0 82px -24px #fff;
+}
+
+#canvas div:hover {
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+.borderDivs {
+    background-color: red;
+}
+
+.mainbar {
+    z-index: 999
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0
+    }
+    to {
+        opacity: 1
+    }
+}
+
+>>>>>>>56ed6df8dd633d02cecf1ced9d665a0da43919b2

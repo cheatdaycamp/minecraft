@@ -6,6 +6,7 @@ $(document).ready(function() {
         };
 
         minecraft.bindMenuActions = function() {
+                //declaring variables inside the minecraft object:
                 minecraft.inventorySky = "",
                     minecraft.inventoryClouds,
                     minecraft.inventoryTnt,
@@ -15,7 +16,9 @@ $(document).ready(function() {
                     minecraft.inventoryBrick,
                     minecraft.inventorywood,
                     minecraft.inventoryLeaves,
-                    minecraft.currentTool = "";
+                    minecraft.currentTool = "",
+                    minecraft.widthChoosen = "",
+                    minecraft.heightChoosen = "";
 
 
                 //Button - On Modal startGame - Starts new game
@@ -24,29 +27,29 @@ $(document).ready(function() {
                 //Button - On Main - Resets the board
                 $('#btnReset').click(minecraft.resetMaterials);
 
-                $('.square').click(function() {
-                    // minecraft.removeMaterial.call(this);
-                    minecraft.buttonClassFade("square");
-
-                })
+                $('.square').click(function() { //buttons with class square: tool buttons, and material buttons.
+                        // minecraft.removeMaterial.call(this);
+                        minecraft.buttonClassFade("square");
+                    })
+                    // $('.temporaryclass').click(addRemoveBrick);
             } // end bind
 
         minecraft.buttonClassFade = function(someclass) {
-            console.log("entry tool: " + minecraft.currentTool)
             if (minecraft.currentTool !== event.target.id) {
                 minecraft.currentTool = event.target.id;
-                $(document.getElementsByClassName(someclass)).fadeTo('fast', '.2');
+                $(document.getElementsByClassName(someclass)).fadeTo('fast', '.5');
                 $(document.getElementById(minecraft.currentTool)).fadeTo("fast", 1);
                 console.log(minecraft.currentTool)
             }
             return minecraft.currentTool;
-
         }
 
-        minecraft.removeMaterial = function() {
+        // minecraft.addRemoveBrick = function() {
+
+        // }
+        minecraft.grabCanvas = function() {
 
         }
-
         minecraft.startGame = function() {
             $('#welcomeScreen').addClass('opacity-0');
             $('#mainScreen').show()
@@ -86,6 +89,7 @@ $(document).ready(function() {
     }) //document readyx;
     //class to create matrix:
 
+//added
 class Arraynew {
     constructor(length) {
         this.length = length;
@@ -108,9 +112,8 @@ class Arraynew {
 }
 
 
-//added
-var array1 = new Arraynew(30);
-var array2 = new Arraynew(30);
+var array1 = new Arraynew(40);
+var array2 = new Arraynew(40);
 
 var matrixBackground = array1.createMatrix(array2);
 
