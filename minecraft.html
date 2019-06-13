@@ -32,33 +32,27 @@
 
 <body>
     <!--WELCOME SCREEN -->
-    <div class="container-flex bkg-landing" id="welcomeScreen">
-        <div class="row h-30px">
-        </div>
-        <div class="row d-flex justify-content-center">
+    <div class="wrapper bkg-landing" id="welcomeScreen">
+        <div class="row landingPageButtonWrapper ">
             <div class="col-12 col-md-6 d-flex justify-content-center">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalStartGame">
- Start Game
- </button>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalStartGame">Start Game</button>
             </div>
             <div class="col-12 col-md-6 d-flex justify-content-center">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ModalInstructions">
- Instructions
- </button>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ModalInstructions">Instructions</button>
             </div>
         </div>
-        <div class="col-12 d-flex justify-content-center align-items-center">
+        <div class="logoholder">
             <img class="logoMinecraft" alt="logo" src="./img/logo.png">
         </div>
     </div>
     <!--WELCOME SCREEN -->
 
     <!-- Modal: Instructions -->
-    <div class="modal fade" id="ModalInstructions" tabindex="-1" role="dialog" aria-labelledby="Modal Instructions" aria-hidden="true">
+    <div class="modal fade" id="ModalInstructions" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Instructions</h5>
+                    <h5 class="modal-title">Instructions</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
  <span aria-hidden="true">&times;</span>
  </button>
@@ -75,21 +69,21 @@
     <!-- Modal: Instructions -->
 
     <!-- Modal: StartGame -->
-    <div class="modal fade" id="modalStartGame" tabindex="-1" role="dialog" aria-labelledby="Modal Start Game" aria-hidden="true">
+    <div class="modal fade" id="modalStartGame" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Start Game</h5>
+                    <h5 class="modal-title">Start Game</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
  <span aria-hidden="true">&times;</span>
  </button>
                 </div>
                 <div class="modal-body">
                     Please choose the size of the board:<br>
-                    <label for="customRange1">Width:</label>
-                    <input type="range" class="custom-range" id="customRange1">
-                    <label for="customRange2">Height:</label>
-                    <input type="range" class="custom-range" id="customRange2">
+                    <label for="canvasRangeWidth">Width:</label>
+                    <input type="range" class="custom-range" min="200" max="800" step="20" id="canvasRangeWidth">
+                    <label for="canvasRangeHeight">Height:</label>
+                    <input type="range" class="custom-range" min="200" max="800" step="20" id="canvasRangeHeight">
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -126,7 +120,7 @@
         <div class="row mainbar padding5px justify-content-center">
             <!-- TOOLS -->
             <div class="col-12 col-sm-6 col-md-3 col-lg-3 col-xl-2 d-flex justify-content-center align-items-center minwidthmincontent margin-5px-0px">
-                <a class="square toolsIcons toolShovel" id="toolShovel" style="opacity: 1"></a>
+                <a class="square toolsIcons toolShovel" id="toolShovel"></a>
                 <a class="square toolsIcons toolAxe" id="toolAxe"></a>
                 <a class="square toolsIcons toolPick" id="toolPick"></a>
                 <a class="square toolsIcons toolSword" id="toolSword"></a>
@@ -138,8 +132,6 @@
                 <a class="square materialsIcons textShadowSmall earth" id="earth"></a>
                 <a class="square materialsIcons textShadowSmall grass" id="grass"></a>
                 <a class="square materialsIcons textShadowSmall rock" id="rock"></a>
-                <!-- </div>
-            <div class="col-12 col-sm-4 col-md-3 col-lg-3 col-xl-6 d-flex justify-content-center align-items-center minwidthmincontent margin-5px-0px text-center"> -->
                 <a class="square materialsIcons textShadowSmall brick" id="brick"></a>
                 <a class="square materialsIcons textShadowSmall wood" id="wood"></a>
                 <a class="square materialsIcons textShadowSmall leaves" id="leaves"></a>
@@ -165,7 +157,7 @@
     </div>
 
     <!--BOOTSTRAP JAVASCRIPT-->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin=" anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <!--BOOTSTRAP JAVASCRIPT-->

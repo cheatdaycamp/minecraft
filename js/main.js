@@ -16,7 +16,10 @@ $(document).ready(function() {
                     minecraft.inventoryBrick,
                     minecraft.inventorywood,
                     minecraft.inventoryLeaves,
-                    minecraft.currentTool = "";
+                    minecraft.currentTool = "",
+                    minecraft.widthChoosen = "",
+                    minecraft.heightChoosen = "";
+
 
                 //Button - On Modal startGame - Starts new game
                 $('#btnStartGame').click(minecraft.startGame);
@@ -44,7 +47,9 @@ $(document).ready(function() {
         // minecraft.addRemoveBrick = function() {
 
         // }
+        minecraft.grabCanvas = function() {
 
+        }
         minecraft.startGame = function() {
             $('#welcomeScreen').addClass('opacity-0');
             $('#mainScreen').show()
