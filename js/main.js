@@ -84,3 +84,55 @@ $(document).ready(function() {
         minecraft.start();
 
     }) //document readyx;
+    //class to create matrix:
+
+class Arraynew {
+    constructor(length) {
+        this.length = length;
+    }
+    createArray() {
+        var array1 = [];
+        for (var i = 0; i < this.length; i++) {
+            array1.push(i);
+        }
+        return array1;
+    }
+    createMatrix(array) {
+        var outerArray = this.createArray();
+        var innerArray = array.createArray();
+        for (var i = 0; i < this.length; i++) {
+            outerArray.splice(i, 1, innerArray);
+        }
+        return outerArray;
+    }
+}
+
+
+//added
+var array1 = new Arraynew(30);
+var array2 = new Arraynew(30);
+
+var matrixBackground = array1.createMatrix(array2);
+
+
+
+
+
+function createTiles(array) {
+    for (var i = 0; i < array.length; i++) {
+        var tileRow = $("<div />");
+        tileRow.addClass("tile");
+
+        $("#canvas").append(tileRow);
+        for (var j = 0; j < array.length; j++) {
+            var tileCol = $("<div />");
+            tileCol.addClass("tile");
+            tileCol.addClass("tileSky");
+            $("#canvas").append(tileCol);
+        }
+    }
+}
+
+createTiles(matrixBackground);
+
+//added tarek

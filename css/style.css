@@ -240,3 +240,39 @@ button:visited {
         opacity: 1
     }
 }
+
+
+/* tarek */
+
+body {
+    margin: 0;
+    margin-top: 20px;
+    display: inline-flex;
+    position: relative;
+    background-size: cover;
+}
+
+.container {
+    width: calc(22px*30);
+    height: calc(22px*20);
+    line-height: 0;
+    pointer-events: none
+}
+
+.tile {
+    height: 20px;
+    width: 20px;
+    border: 1px solid white;
+    display: inline-block;
+}
+
+.tileSky {
+    background-color: lightblue;
+}
+
+.tilecolor {
+    background-color: red;
+}
+
+
+/* tarek */
