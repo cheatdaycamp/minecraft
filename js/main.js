@@ -22,7 +22,7 @@ $(document).ready(function() {
 
 
                 //Button - On Modal startGame - Starts new game
-                $('#btnStartGame').click(minecraft.startGame);
+                // $('#btnStartGame').click(minecraft.startGame);
 
                 //Button - On Main - Resets the board
                 $('#btnReset').click(minecraft.resetMaterials);
@@ -110,18 +110,18 @@ class Arraynew {
     }
 }
 var array1 = new Arraynew(50);
-var array2 = new Arraynew(21);
+var array2 = new Arraynew(18);
 
 var matrixBackground = array1.matrix(array2);
 
 function createTiles(array) {
     for (var i = 0; i < array.length; i++) {
-        $('#canvas').append('<div class="second_' + i + 1 + ' tile tileSky" ></div>');
+        $('#canvas').append('<div class="second_' + 1 + i + ' tile tileSky materialsIcons" ></div>');
 
 
         for (var j = 0; j < array[i].length; j++) {
 
-            $('#canvas').append('<div class="second_' + i + 1 + ' tile tileSky" ></div>');
+            $('#canvas').append('<div class="second_' + 1 + i + ' tile tileSky materialsIcons" ></div>');
 
 
         }
@@ -136,7 +136,7 @@ createTiles(matrixBackground);
 grass();
 
 function grass() {
-    for (var i = 151; i < 152; i++) {
+    for (var i = 111; i < 112; i++) {
 
         var grass = $(".second_" + i);
         grass.removeClass("tileSky");
@@ -147,7 +147,7 @@ function grass() {
 grass();
 
 function earth() {
-    for (var i = 171; i < 300; i++) {
+    for (var i = 111; i < 300; i++) {
 
         var earth = $(".second_" + i);
         earth.removeClass("tileSky");
@@ -156,35 +156,80 @@ function earth() {
 }
 
 earth();
-// function wood() {
-//     for (var i = 40; i < 80; i++) {
 
-//         var wood = $("#first_");
-//         wood.removeClass("tileSky");
-//         wood.addClass("wood");
-//     }
-// }
+function tree() {
+    $("div").eq(98).css('background-image', 'url(img/PNGS/leaves.png)')
+    $("div").eq(99).css('background-image', 'url(img/PNGS/leaves.png)')
+    $("div").eq(100).css('background-image', 'url(img/PNGS/leaves.png)')
+    $("div").eq(117).css('background-image', 'url(img/PNGS/leaves.png)')
+    $("div").eq(118).css('background-image', 'url(img/PNGS/leaves.png)')
+    $("div").eq(119).css('background-image', 'url(img/PNGS/leaves.png)')
+    $("div").eq(136).css('background-image', 'url(img/PNGS/leaves.png)')
+    $("div").eq(138).css('background-image', 'url(img/PNGS/leaves.png)')
 
-// wood();
+    $("div").eq(137).css('background-image', 'url(img/PNGS/trunk.png)')
+    $("div").eq(156).css('background-image', 'url(img/PNGS/trunk.png)')
+    $("div").eq(175).css('background-image', 'url(img/PNGS/trunk.png)')
+    $("div").eq(194).css('background-image', 'url(img/PNGS/trunk.png)')
 
-// function earth() {
-//     for (var i = 0; i < 10; i++) {
 
-//         var earth = $(".tile");
-//         earth.removeClass("tileSky");
-//         earth.addClass("earth");
-//     }
-// }
+    $("div").eq(127).css('background-image', 'url(img/PNGS/leaves.png)')
+    $("div").eq(128).css('background-image', 'url(img/PNGS/leaves.png)')
+    $("div").eq(129).css('background-image', 'url(img/PNGS/leaves.png)')
+    $("div").eq(146).css('background-image', 'url(img/PNGS/leaves.png)')
+    $("div").eq(148).css('background-image', 'url(img/PNGS/leaves.png)')
+    $("div").eq(147).css('background-image', 'url(img/PNGS/leaves.png)')
+    $("div").eq(165).css('background-image', 'url(img/PNGS/leaves.png)')
+    $("div").eq(166).css('background-image', 'url(img/PNGS/leaves.png)')
+    $("div").eq(167).css('background-image', 'url(img/PNGS/leaves.png)')
 
-// earth();
 
-// function rock() {
-//     for (var i = 0; i < 10; i++) {
+    $("div").eq(166).css('background-image', 'url(img/PNGS/trunk.png)')
+    $("div").eq(185).css('background-image', 'url(img/PNGS/trunk.png)')
+    $("div").eq(204).css('background-image', 'url(img/PNGS/trunk.png)')
 
-//         var tree = $(".tile");
-//         tree.removeClass("tileSky");
-//         tree.addClass("rock");
-//     }
-// }
 
-// rock();
+}
+tree();
+
+function rock() {
+    $("div").eq(200).css('background-image', 'url(img/PNGS/rock02.png)')
+    $("div").eq(240).css('background-image', 'url(img/PNGS/rock02.png)')
+    $("div").eq(198).css('background-image', 'url(img/PNGS/rock02.png)')
+    $("div").eq(260).css('background-image', 'url(img/PNGS/rock02.png)')
+
+}
+rock();
+
+function clouds() {
+
+
+    $("div").eq(47).css('background-image', 'url(img/PNGS/clouds.png)')
+    $("div").eq(48).css('background-image', 'url(img/PNGS/clouds.png)')
+    $("div").eq(49).css('background-image', 'url(img/PNGS/clouds.png)')
+
+    $("div").eq(65).css('background-image', 'url(img/PNGS/clouds.png)')
+    $("div").eq(66).css('background-image', 'url(img/PNGS/clouds.png)')
+    $("div").eq(67).css('background-image', 'url(img/PNGS/clouds.png)')
+    $("div").eq(68).css('background-image', 'url(img/PNGS/clouds.png)')
+    $("div").eq(69).css('background-image', 'url(img/PNGS/clouds.png)')
+
+
+    $("div").eq(85).css('background-image', 'url(img/PNGS/clouds.png)')
+    $("div").eq(86).css('background-image', 'url(img/PNGS/clouds.png)')
+    $("div").eq(87).css('background-image', 'url(img/PNGS/clouds.png)')
+
+    $("div").eq(57).css('background-image', 'url(img/PNGS/clouds.png)')
+    $("div").eq(58).css('background-image', 'url(img/PNGS/clouds.png)')
+
+    $("div").eq(75).css('background-image', 'url(img/PNGS/clouds.png)')
+    $("div").eq(77).css('background-image', 'url(img/PNGS/clouds.png)')
+    $("div").eq(76).css('background-image', 'url(img/PNGS/clouds.png)')
+
+
+    $("div").eq(95).css('background-image', 'url(img/PNGS/clouds.png)')
+    $("div").eq(96).css('background-image', 'url(img/PNGS/clouds.png)')
+
+
+}
+clouds();
