@@ -18,24 +18,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--BOOTSTRAP 4-->
 
-    <!--FONTS-->
-
-    <!--FONTS-->
-
     <!--CSS-->
     <link rel="stylesheet" href="./css/style.css">
     <!--CSS-->
-
-
 </head>
 
 
 <body>
     <!--WELCOME SCREEN -->
-    <!-- <div class="wrapper bkg-landing" id="welcomeScreen">
+    <div class="wrapper bkg-landing" id="welcomeScreen">
         <div class="row landingPageButtonWrapper ">
             <div class="col-12 col-md-6 d-flex justify-content-center">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalStartGame">Start Game</button>
+                <button type="button" class="btn btn-primary" id="btnStartGame">Start Game</button>
             </div>
             <div class="col-12 col-md-6 d-flex justify-content-center">
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ModalInstructions">Instructions</button>
@@ -48,54 +42,28 @@
     <!--WELCOME SCREEN -->
 
     <!-- Modal: Instructions -->
-    <!-- <div class="modal fade" id="ModalInstructions" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal fade" id="ModalInstructions" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Instructions</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
- <span aria-hidden="true">&times;</span> -->
-    <!-- </button>
+ <span aria-hidden="true">&times;</span>
+ </button>
                 </div>
-                <div class="modal-body">
-                    Instructions here
+                <div class="modal-body" id="instructionsText">
+                    Pick a <b>brick</b> or a <b>rock</b> with a <b>Pick</b>, Dig the <b>earth</b> and the <b>grass</b> with your <b>Shovel</b>, with the <b>Axe</b> you have full control of the <b>tree</b>, but it is the <b>Sword</b> that gives you power
+                    over the <b>clouds</b> and <b>TnT</b> <br> <br> WATCH YOUR INVENTORY!
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn-type2" data-dismiss="modal">PLAY</button>
                 </div>
             </div>
         </div>
-    </div> -->
+    </div>
     <!-- Modal: Instructions -->
 
-    <!-- Modal: StartGame -->
-    <!-- <div class="modal fade" id="modalStartGame" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Start Game</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                            </button>
-                </div>
-                <div class="modal-body">
-                    Please choose the size of the board:<br>
-                    <label for="canvasRangeWidth">Width:</label>
-                    <input type="range" class="custom-range" min="200" max="800" step="20" id="canvasRangeWidth">
-                    <label for="canvasRangeHeight">Height:</label>
-                    <input type="range" class="custom-range" min="200" max="800" step="20" id="canvasRangeHeight">
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btnStartGame">Start Game</button>
-                </div>
-            </div>
-        </div>
-    </div> -->
-    Modal: StartGame -->
-
-
-    <main class="wrapperGame bkg-game01" id="mainScreen" style="display:block">
+    <main class="wrapperGame bkg-game01" id="mainScreen" style="display:none">
         <!--CANVAS -->
         <div class="wrapperCanvas">
             <div id="canvas">
@@ -115,7 +83,7 @@
             </div>
             <!-- TOOLS -->
             <!-- INVENTORY -->
-            <div class="flex-center-center text-center">
+            <div class="flex-center-center text-center" id="inventory">
                 <a class="square materialsIcons textShadowSmall clouds" id="clouds"></a>
                 <a class="square materialsIcons textShadowSmall earth" id="earth"></a>
                 <a class="square materialsIcons textShadowSmall grass" id="grass"></a>
@@ -128,9 +96,14 @@
             <!-- INVENTORY -->
             <!-- BUTTONS -->
             <div class="flex-center-center">
-                <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#ModalInstructions">
-                                    instructions</button>
-                <button type="button" class="btn btn-secondary" id="btnReset">Reset</button>
+                <a class="btn-type2" data-toggle="modal" data-target="#ModalInstructions">
+                    <span class="fullText"> Instructions</span>
+                    <span class="minimizedToIcon"> <i class="fas fa-question"></i></span>
+                </a>
+                <a class="btn-type2" id="btnReset">
+                    <span class="fullText">Reset</span>
+                    <span class="minimizedToIcon"><i class="fas fa-redo-alt"></i></span>
+                </a>
             </div>
             <!-- BUTTONS -->
         </div>

@@ -3,8 +3,8 @@
     src: url(../fonts/Minecrafter.Alt.ttf)
 }
 
-*:focus {
-    outline: none !important;
+:focus {
+    outline: 0!important
 }
 
 * {
@@ -17,15 +17,14 @@
     letter-spacing: .15em
 }
 
-[class*='col-'] {
+[class*=col-] {
     padding-right: 0;
-    padding-left: 0;
+    padding-left: 0
 }
 
 html {
-    /* overflow: hidden; */
     height: 100vh;
-    width: 100vw;
+    width: 100vw
 }
 
 body {
@@ -38,18 +37,17 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    /* overflow: hidden; */
+    align-items: center
 }
 
 .wrapper .landingPageButtonWrapper {
-    padding-top: 40px;
+    padding-top: 40px
 }
 
 .logoMinecraft {
     display: block;
     height: 80vmin;
-    width: 80vmin;
+    width: 80vmin
 }
 
 .logoholder {
@@ -57,7 +55,7 @@ body {
     flex-direction: column;
     flex-grow: 1;
     justify-content: center;
-    align-items: center;
+    align-items: center
 }
 
 .bkg-landing {
@@ -67,7 +65,7 @@ body {
     background-repeat: no-repeat;
     transition: all .4s ease-in-out;
     width: 100%;
-    height: 100%;
+    height: 100%
 }
 
 .btn-primary {
@@ -82,22 +80,22 @@ body {
 .btn-primary:hover {
     transform: scale(1.2);
     background-color: transparent;
-    border: 0px transparent;
+    border: 0 transparent;
     border-color: transparent;
-    text-shadow: 0 0 15px #000;
+    text-shadow: 0 0 15px #000
 }
 
-.btn-primary:focus,
-.btn-secondary:focus,
 .btn-primary:active,
-.btn-secondary:active {
+.btn-primary:focus,
+.btn-type2:active,
+.btn-type2:focus {
     outline: 0;
-    border: 0px transparent;
-    background: transparent;
+    border: 0 transparent;
+    background: 0 0
 }
 
-.btn-secondary {
-    color: black;
+.btn-type2 {
+    color: #000!important;
     background-color: transparent;
     border: 0, transparent;
     border-color: transparent;
@@ -105,17 +103,14 @@ body {
     text-decoration: none
 }
 
-.btn-secondary:hover {
+.btn-type2:hover {
     transform: scale(1.1);
-    background-color: transparent;
-    border: 0, transparent;
+    background-color: transparent!important;
+    border: 0, transparent!important;
     border-color: transparent;
     text-shadow: 0 0 15px #000;
-    color: white;
-}
-
-.margin-top-10vh {
-    padding-top: 5vh
+    color: #fff!important;
+    cursor: pointer
 }
 
 .bkg-game01 {
@@ -135,9 +130,9 @@ button:visited {
 .row {
     display: flex;
     flex-direction: row;
-    padding: 0px;
-    margin: 0px;
-    width: auto;
+    padding: 0;
+    margin: 0;
+    width: auto
 }
 
 .wrapper {
@@ -145,7 +140,7 @@ button:visited {
     flex-direction: column;
     margin: 0;
     padding: 0;
-    height: 100vh;
+    height: 100vh
 }
 
 .wrapperGame {
@@ -155,7 +150,7 @@ button:visited {
     margin: 0;
     padding: 0;
     height: 100vh;
-    flex-grow: 1;
+    flex-grow: 1
 }
 
 .wrapperToolPallete {
@@ -167,7 +162,7 @@ button:visited {
     background-image: url(../img/woodtexture.jpg);
     background-size: 100% auto;
     background-repeat: repeat-y;
-    align-items: center;
+    align-items: center
 }
 
 .wrapperCanvas {
@@ -176,7 +171,7 @@ button:visited {
     height: 100%;
     flex-grow: 1;
     justify-content: center;
-    align-items: center;
+    align-items: center
 }
 
 .flex-center-center {
@@ -187,11 +182,7 @@ button:visited {
     width: min-content;
     height: min-content;
     flex-wrap: wrap;
-    width: 100%;
-}
-
-.padding5px {
-    padding: 5px
+    width: 100%
 }
 
 .square {
@@ -203,11 +194,11 @@ button:visited {
     border: 1px solid #fff;
     background-position: center center;
     background-repeat: no-repeat;
-    background-color: #fff
+    background-color: #000
 }
 
 .textShadowSmall {
-    text-shadow: 0px 0px 8px white;
+    text-shadow: 0 0 8px #fff
 }
 
 .materialsIcons {
@@ -215,7 +206,7 @@ button:visited {
 }
 
 .toolsIcons {
-    background-size: 80%;
+    background-size: 80%
 }
 
 .toolPick {
@@ -270,9 +261,19 @@ button:visited {
     background-image: url(../img/PNGS/tnt.png)
 }
 
-.temporaryclass {
-    width: 40px;
-    height: 40px;
+.modal {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none
+}
+
+#instructionsText {
+    font-family: monospace;
+    line-height: 1.5rem;
+    font-size: 1.5rem
 }
 
 .square:hover {
@@ -281,10 +282,6 @@ button:visited {
     -webkit-box-shadow: 0 0 8px 1px rgba(255, 255, 255, 1);
     -moz-box-shadow: 0 0 8px 1px rgba(255, 255, 255, 1);
     box-shadow: 0 0 8px 1px rgba(255, 255, 255, 1)
-}
-
-.minwidthmincontent {
-    width: min-content
 }
 
 #canvas {
@@ -297,20 +294,27 @@ button:visited {
     webkit-box-shadow: 0 0 82px -24px #fff;
     -moz-box-shadow: 0 0 82px -24px #fff;
     box-shadow: 0 0 82px -24px #fff;
-    border: 1px solid black;
+    border: 1px solid #000
 }
 
 #canvas div:hover {
-    border: 1px solid black;
-    cursor: pointer;
+    border: 1px solid #000;
+    cursor: pointer
 }
 
-.borderDivs {
-    background-color: red;
+.minimizedToIcon {
+    display: none
 }
 
-.mainbar {
-    z-index: 999
+.fulltext {
+    display: inline-block
+}
+
+.tile {
+    height: 42px;
+    width: 42px;
+    /* border: .5px solid white; */
+    display: inline-block;
 }
 
 @keyframes fadein {
@@ -322,10 +326,10 @@ button:visited {
     }
 }
 
-@media (max-width: 991.98px) {
+@media (max-width:991.98px) {
     .wrapperGame {
         flex-direction: column;
-        justify-content: space-around;
+        justify-content: space-around
     }
     .wrapperToolPallete {
         flex-direction: row;
@@ -333,38 +337,41 @@ button:visited {
         flex-grow: 1;
         width: 100%;
         background-size: 15%;
-        background-repeat: repeat-x;
+        background-repeat: repeat-x
     }
     .wrapperCanvas {
-        flex-direction: column;
+        flex-direction: column
+    }
+    .fullText {
+        display: none
+    }
+    .minimizedToIcon {
+        display: flex;
+        align-items: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 3px;
+        margin: 2px;
+        border: 1px solid #fff;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-color: #000;
+        color: #fff;
+        justify-content: center
     }
 }
 
-@media (min-width: 992px) {
+@media (min-width:992px) {
     .wrapperGame {
-        flex-direction: row;
+        flex-direction: row
     }
     .wrapperToolPallete {
-        flex-direction: column;
+        flex-direction: column
     }
-    .wrapperCanvas {
-        flex-direction: column;
+    .fullText {
+        display: inline-block
+    }
+    .minimizedToIcon {
+        display: none
     }
 }
-
-
-/* tarek css */
-
-.tile {
-    height: 42px;
-    width: 42px;
-    border: 1px solid white;
-    display: inline-block;
-}
-
-.tileSky {
-    background-color: lightblue;
-}
-
-
-/* tarek css */

@@ -6,32 +6,36 @@ $(document).ready(function() {
         };
 
         minecraft.bindMenuActions = function() {
-                //declaring variables inside the minecraft object:
-                minecraft.inventorySky = "",
-                    minecraft.inventoryClouds,
-                    minecraft.inventoryTnt,
-                    minecraft.inventoryEarth,
-                    minecraft.inventoryGrass,
-                    minecraft.inventoryRock,
-                    minecraft.inventoryBrick,
-                    minecraft.inventorywood,
-                    minecraft.inventoryLeaves,
-                    minecraft.currentTool = "",
-                    minecraft.widthChoosen = "",
+
+                minecraft.chosenTool;
+                minecraft.chosenMaterial;
+                minecraft.currentTool = "";
+                minecraft.widthChoosen = "",
                     minecraft.heightChoosen = "";
 
+                //main function to play
+                $('#canvas div').click(minecraft.playOnCanvas);
 
                 //Button - On Modal startGame - Starts new game
-                // $('#btnStartGame').click(minecraft.startGame);
+                $('#btnStartGame').click(minecraft.startGame);
 
                 //Button - On Main - Resets the board
                 $('#btnReset').click(minecraft.resetMaterials);
 
-                $('.square').click(function() { //buttons with class square: tool buttons, and material buttons.
-                        // minecraft.removeMaterial.call(this);
-                        minecraft.buttonClassFade("square");
-                    })
-                    // $('.temporaryclass').click(addRemoveBrick);
+                //User chooses a tool 
+                $(".squares").on("click", minecraft.selectTool);
+
+                //Button - On Modal startGame - Starts new game
+                $('#btnStartGame').click(minecraft.startGame);
+
+                //Button - On Main - Resets the board
+                $('#btnReset').click(minecraft.resetMaterials);
+
+                //Function for the toolbox buttons
+                $('.square').click(function() {
+                    minecraft.buttonClassFade("square")
+                });
+
             } // end bind
 
         minecraft.buttonClassFade = function(someclass) {
@@ -44,9 +48,6 @@ $(document).ready(function() {
             return minecraft.currentTool;
         }
 
-        // minecraft.addRemoveBrick = function() {
-
-        // }
         minecraft.grabCanvas = function() {
 
         }
@@ -61,15 +62,202 @@ $(document).ready(function() {
         // function to reset the inventory
         minecraft.resetMaterials = function() {
             // add counters here
-            $('#clouds').html(8);
-            $('#earth').html(5);
-            $('#grass').html(3);
-            $('#rock').html(4);
-            $('#brick').html(5);
-            $('#wood').html(3);
-            $('#leaves').html(4);
-            $('#tnt').html(3);
+            $('#clouds').html(2); //8
+            $('#earth').html(1); //5
+            $('#grass').html(1); //3
+            $('#rock').html(1); //4
+            $('#brick').html(1); //5
+            $('#wood').html(1); //3
+            $('#leaves').html(1); //1
+            $('#tnt').html(1); //3
         };
+
+        minecraft.getInventory = function() {
+            minecraft.counterClouds = (parseInt($('.wrapperToolPallete a.clouds').html()));
+            minecraft.counterTnt = (parseInt($('.wrapperToolPallete a.tnt').html()));
+            minecraft.counterEarth = (parseInt($('.wrapperToolPallete a.earth').html()));
+            minecraft.counterGrass = (parseInt($('.wrapperToolPallete a.grass').html()));
+            minecraft.counterWood = (parseInt($('.wrapperToolPallete a.wood').html()));
+            minecraft.counterLeaves = (parseInt($('.wrapperToolPallete a.leaves').html()));
+            minecraft.counterRock = (parseInt($('.wrapperToolPallete a.rock').html()));
+            minecraft.counterBrick = (parseInt($('.wrapperToolPallete a.brick').html()));
+        }
+
+
+        minecraft.playOnCanvas = function() {
+            minecraft.getInventory();
+            if (minecraft.currentTool == "clouds") {
+                if (minecraft.counterClouds > 0 && $(this).hasClass('sky')) {
+                    $('#inventory div').css("border-color", "white");
+                    $(this).removeClass("sky");
+                    $(this).addClass("clouds").removeClass("sky");
+                    minecraft.counterClouds--;
+                    $('.wrapperToolPallete a.clouds').html(minecraft.counterClouds)
+                } else {
+                    $('#clouds').css("border-color", "red");
+                }
+
+            } else if (minecraft.currentTool == "earth") {
+                if (minecraft.counterEarth > 0 && $(this).hasClass('sky')) {
+                    $('#inventory div').css("border-color", "white");
+                    $(this).removeClass("sky");
+                    $(this).addClass("earth");
+                    minecraft.counterEarth--;
+                    $('.wrapperToolPallete a.earth').html(minecraft.counterEarth)
+                } else {
+                    $('#earth').css("border-color", "red");
+                }
+
+            } else if (minecraft.currentTool == "grass") {
+                if (minecraft.counterGrass > 0 && $(this).hasClass('sky')) {
+                    $('#inventory div').css("border-color", "white");
+                    $(this).removeClass("sky");
+                    $(this).addClass("grass");
+                    minecraft.counterGrass--;
+                    $('.wrapperToolPallete a.grass').html(minecraft.counterGrass)
+                } else {
+                    $('#grass').css("border-color", "red");
+                }
+
+            } else if (minecraft.currentTool == "wood") {
+                if (minecraft.counterWood > 0 && $(this).hasClass('sky')) {
+                    $('#inventory div').css("border-color", "white");
+                    $(this).removeClass("sky");
+                    $(this).addClass("wood");
+                    minecraft.counterWood--;
+                    $('.wrapperToolPallete a.wood').html(minecraft.counterWood)
+                } else {
+                    $('#wood').css("border-color", "red");
+                }
+
+            } else if (minecraft.currentTool == "rock") {
+                if (minecraft.counterRock > 0 && $(this).hasClass('sky')) {
+                    $('#inventory div').css("border-color", "white");
+                    $(this).removeClass("sky");
+                    $(this).addClass("rock");
+                    minecraft.counterRock--;
+                    $('.wrapperToolPallete a.rock').html(minecraft.counterRock)
+                } else {
+                    $('#rock').css("border-color", "red");
+                }
+
+            } else if (minecraft.currentTool == "brick") {
+                if (minecraft.counterBrick > 0 && $(this).hasClass('sky')) {
+                    $('#inventory div').css("border-color", "white");
+                    $(this).removeClass("sky");
+                    $(this).addClass("brick");
+                    minecraft.counterBrick--;
+                    $('.wrapperToolPallete a.brick').html(minecraft.counterBrick)
+                } else {
+                    $('#brick').css("border-color", "red");
+                }
+
+            } else if (minecraft.currentTool == "leaves") {
+                if (minecraft.counterLeaves > 0 && $(this).hasClass('sky')) {
+                    $('#inventory div').css("border-color", "white");
+                    $(this).removeClass("sky");
+                    $(this).addClass("leaves");
+                    minecraft.counterLeaves--;
+                    $('.wrapperToolPallete a.leaves').html(minecraft.counterLeaves)
+                } else {
+                    $('#leaves').css("border-color", "red");
+                }
+
+            } else if (minecraft.currentTool == "tnt") {
+                if (minecraft.counterTnt > 0 && $(this).hasClass('sky')) {
+                    $('#inventory div').css("border-color", "white");
+                    $(this).removeClass("sky");
+                    $(this).addClass("tnt");
+                    minecraft.counterTnt--;
+                    $('.wrapperToolPallete a.tnt').html(minecraft.counterTnt)
+                } else {
+                    $('#tnt').css("border-color", "red");
+                }
+
+            } else if (minecraft.currentTool == "toolAxe") {
+                if ($(this).hasClass("wood")) {
+                    $(this).removeClass("wood");
+                    $(this).addClass("sky");
+                    minecraft.counterWood++;
+                    $('.wrapperToolPallete a.wood').html(minecraft.counterWood)
+                } else {
+                    $(this).css("border-color", "red");
+                    $('#wood').css("border-color", "red");
+                }
+                if ($(this).hasClass("leaves")) {
+                    $(this).removeClass("leaves");
+                    $(this).addClass("sky");
+                    minecraft.counterLeaves++;
+                    $('.wrapperToolPallete a.leaves').html(minecraft.counterLeaves)
+
+                } else {
+                    $(this).css("border-color", "red");
+                    $('#leaves').css("border-color", "red");
+                }
+            } else if (minecraft.currentTool == "toolPick") {
+                if ($(this).hasClass("rock")) {
+                    $(this).removeClass("rock");
+                    $(this).addClass("sky");
+                    minecraft.counterRock++;
+                    $('.wrapperToolPallete a.rock').html(minecraft.counterRock)
+
+                } else {
+                    $(this).css("border-color", "red");
+                    $('#rock').css("border-color", "red");
+                }
+                if ($(this).hasClass("brick")) {
+                    $(this).removeClass("brick");
+                    $(this).addClass("sky");
+                    minecraft.counterBrick++;
+                    $('.wrapperToolPallete a.brick').html(minecraft.counterBrick)
+                } else {
+                    $(this).css("border-color", "red");
+                    $('#brick').css("border-color", "red");
+                }
+            } else if (minecraft.currentTool == "toolSword") {
+                if ($(this).hasClass("clouds")) {
+                    $(this).removeClass("clouds");
+                    $(this).addClass("sky");
+                    minecraft.counterClouds++;
+                    $('.wrapperToolPallete a.clouds').html(minecraft.counterClouds)
+
+                } else {
+                    $(this).css("border-color", "red");
+                    $('#clouds').css("border-color", "red");
+                }
+                if ($(this).hasClass("tnt")) {
+                    $(this).removeClass("tnt");
+                    $(this).addClass("sky");
+                    minecraft.counterTnt++;
+                    $('.wrapperToolPallete a.tnt').html(minecraft.counterTnt)
+                } else {
+                    $(this).css("border-color", "red");
+                    $('#tnt').css("border-color", "red");
+                }
+            } else if (minecraft.currentTool == "toolShovel") {
+                if ($(this).hasClass("earth")) {
+                    $(this).removeClass("earth");
+                    $(this).addClass("sky");
+                    minecraft.counterEarth++;
+                    $('.wrapperToolPallete a.earth').html(minecraft.counterEarth)
+                } else {
+                    $(this).css("border-color", "red");
+                    $('#earth').css("border-color", "red");
+                }
+                if ($(this).hasClass("grass")) {
+                    $(this).removeClass("grass");
+                    $(this).addClass("sky");
+                    minecraft.counterGrass++;
+                    $('.wrapperToolPallete a.grass').html(minecraft.counterGrass)
+
+                } else {
+                    $(this).css("border-color", "red");
+                    $('#grass').css("border-color", "red");
+                }
+            }
+
+        }
+
         minecraft.generateSquares = function() {
             var unitSize = "40px",
                 bricksOnWidth = parseInt($('#canvas').width() / parseInt(unitSize)),
@@ -116,12 +304,12 @@ var matrixBackground = array1.matrix(array2);
 
 function createTiles(array) {
     for (var i = 0; i < array.length; i++) {
-        $('#canvas').append('<div class="second_' + 1 + i + ' tile tileSky materialsIcons" ></div>');
+        $('#canvas').append('<div class="second_' + 1 + i + ' tile sky materialsIcons" ></div>');
 
 
         for (var j = 0; j < array[i].length; j++) {
 
-            $('#canvas').append('<div class="second_' + 1 + i + ' tile tileSky materialsIcons" ></div>');
+            $('#canvas').append('<div class="second_' + 1 + i + ' tile sky materialsIcons" ></div>');
 
 
         }
@@ -131,105 +319,97 @@ createTiles(matrixBackground);
 
 //added tarek
 
-
-
-grass();
-
 function grass() {
     for (var i = 111; i < 112; i++) {
 
         var grass = $(".second_" + i);
-        grass.removeClass("tileSky");
+        grass.removeClass("sky");
         grass.addClass("grass");
     }
 }
-
 grass();
 
 function earth() {
-    for (var i = 111; i < 300; i++) {
+    for (var i = 112; i < 300; i++) {
 
         var earth = $(".second_" + i);
-        earth.removeClass("tileSky");
+        earth.removeClass("sky");
         earth.addClass("earth");
     }
 }
-
 earth();
 
 function tree() {
-    $("div").eq(98).css('background-image', 'url(img/PNGS/leaves.png)')
-    $("div").eq(99).css('background-image', 'url(img/PNGS/leaves.png)')
-    $("div").eq(100).css('background-image', 'url(img/PNGS/leaves.png)')
-    $("div").eq(117).css('background-image', 'url(img/PNGS/leaves.png)')
-    $("div").eq(118).css('background-image', 'url(img/PNGS/leaves.png)')
-    $("div").eq(119).css('background-image', 'url(img/PNGS/leaves.png)')
-    $("div").eq(136).css('background-image', 'url(img/PNGS/leaves.png)')
-    $("div").eq(138).css('background-image', 'url(img/PNGS/leaves.png)')
+    $("div").eq(117).addClass("leaves").removeClass("sky");
+    $("div").eq(118).addClass("leaves").removeClass("sky");
+    $("div").eq(119).addClass("leaves").removeClass("sky");
+    $("div").eq(136).addClass("leaves").removeClass("sky");
+    $("div").eq(137).addClass("leaves").removeClass("sky");
+    $("div").eq(138).addClass("leaves").removeClass("sky");
+    $("div").eq(155).addClass("leaves").removeClass("sky");
+    $("div").eq(157).addClass("leaves").removeClass("sky");
 
-    $("div").eq(137).css('background-image', 'url(img/PNGS/trunk.png)')
-    $("div").eq(156).css('background-image', 'url(img/PNGS/trunk.png)')
-    $("div").eq(175).css('background-image', 'url(img/PNGS/trunk.png)')
-    $("div").eq(194).css('background-image', 'url(img/PNGS/trunk.png)')
-
-
-    $("div").eq(127).css('background-image', 'url(img/PNGS/leaves.png)')
-    $("div").eq(128).css('background-image', 'url(img/PNGS/leaves.png)')
-    $("div").eq(129).css('background-image', 'url(img/PNGS/leaves.png)')
-    $("div").eq(146).css('background-image', 'url(img/PNGS/leaves.png)')
-    $("div").eq(148).css('background-image', 'url(img/PNGS/leaves.png)')
-    $("div").eq(147).css('background-image', 'url(img/PNGS/leaves.png)')
-    $("div").eq(165).css('background-image', 'url(img/PNGS/leaves.png)')
-    $("div").eq(166).css('background-image', 'url(img/PNGS/leaves.png)')
-    $("div").eq(167).css('background-image', 'url(img/PNGS/leaves.png)')
+    $("div").eq(156).addClass("wood").removeClass("sky");
+    $("div").eq(175).addClass("wood").removeClass("sky");
+    $("div").eq(194).addClass("wood").removeClass("sky");
+    $("div").eq(213).addClass("wood").removeClass("sky");
 
 
-    $("div").eq(166).css('background-image', 'url(img/PNGS/trunk.png)')
-    $("div").eq(185).css('background-image', 'url(img/PNGS/trunk.png)')
-    $("div").eq(204).css('background-image', 'url(img/PNGS/trunk.png)')
+    $("div").eq(186).addClass("leaves").removeClass("sky");
+    $("div").eq(184).addClass("leaves").removeClass("sky");
+    $("div").eq(146).addClass("leaves").removeClass("sky");
+    $("div").eq(148).addClass("leaves").removeClass("sky");
+    $("div").eq(147).addClass("leaves").removeClass("sky");
+    $("div").eq(165).addClass("leaves").removeClass("sky");
+    $("div").eq(166).addClass("leaves").removeClass("sky");
+    $("div").eq(167).addClass("leaves").removeClass("sky");
 
 
+    $("div").eq(185).addClass("wood").removeClass("sky");
+    $("div").eq(204).addClass("wood").removeClass("sky");
+    $("div").eq(223).addClass("wood").removeClass("sky");
 }
 tree();
 
 function rock() {
-    $("div").eq(200).css('background-image', 'url(img/PNGS/rock02.png)')
-    $("div").eq(240).css('background-image', 'url(img/PNGS/rock02.png)')
-    $("div").eq(198).css('background-image', 'url(img/PNGS/rock02.png)')
-    $("div").eq(260).css('background-image', 'url(img/PNGS/rock02.png)')
+    $("div").eq(230).addClass("rock").removeClass("sky");
+    $("div").eq(240).addClass("rock").removeClass("sky");
+    $("div").eq(219).addClass("rock").removeClass("sky");
+    $("div").eq(218).addClass("rock").removeClass("sky");
+    $("div").eq(217).addClass("rock").removeClass("sky");
+    $("div").eq(199).addClass("rock").removeClass("sky");
+    $("div").eq(260).addClass("rock").removeClass("sky")
+
 
 }
 rock();
 
 function clouds() {
+    $("div").eq(47).addClass("clouds").removeClass("sky");
+    $("div").eq(48).addClass("clouds").removeClass("sky");
+    $("div").eq(49).addClass("clouds").removeClass("sky");
+
+    $("div").eq(65).addClass("clouds").removeClass("sky");
+    $("div").eq(66).addClass("clouds").removeClass("sky");
+    $("div").eq(67).addClass("clouds").removeClass("sky");
+    $("div").eq(68).addClass("clouds").removeClass("sky");
+    $("div").eq(69).addClass("clouds").removeClass("sky");
 
 
-    $("div").eq(47).css('background-image', 'url(img/PNGS/clouds.png)')
-    $("div").eq(48).css('background-image', 'url(img/PNGS/clouds.png)')
-    $("div").eq(49).css('background-image', 'url(img/PNGS/clouds.png)')
+    $("div").eq(85).addClass("clouds").removeClass("sky");
+    $("div").eq(86).addClass("clouds").removeClass("sky");
+    $("div").eq(87).addClass("clouds").removeClass("sky");
 
-    $("div").eq(65).css('background-image', 'url(img/PNGS/clouds.png)')
-    $("div").eq(66).css('background-image', 'url(img/PNGS/clouds.png)')
-    $("div").eq(67).css('background-image', 'url(img/PNGS/clouds.png)')
-    $("div").eq(68).css('background-image', 'url(img/PNGS/clouds.png)')
-    $("div").eq(69).css('background-image', 'url(img/PNGS/clouds.png)')
-
-
-    $("div").eq(85).css('background-image', 'url(img/PNGS/clouds.png)')
-    $("div").eq(86).css('background-image', 'url(img/PNGS/clouds.png)')
-    $("div").eq(87).css('background-image', 'url(img/PNGS/clouds.png)')
-
-    $("div").eq(57).css('background-image', 'url(img/PNGS/clouds.png)')
-    $("div").eq(58).css('background-image', 'url(img/PNGS/clouds.png)')
-
-    $("div").eq(75).css('background-image', 'url(img/PNGS/clouds.png)')
-    $("div").eq(77).css('background-image', 'url(img/PNGS/clouds.png)')
-    $("div").eq(76).css('background-image', 'url(img/PNGS/clouds.png)')
+    $("div").eq(57).addClass("clouds").removeClass("sky");
+    $("div").eq(94).addClass("clouds").removeClass("sky");
+    $("div").eq(93).addClass("clouds").removeClass("sky");
+    $("div").eq(92).addClass("clouds").removeClass("sky");
+    $("div").eq(74).addClass("clouds").removeClass("sky");
+    $("div").eq(75).addClass("clouds").removeClass("sky");
+    $("div").eq(77).addClass("clouds").removeClass("sky");
+    $("div").eq(76).addClass("clouds").removeClass("sky");
 
 
-    $("div").eq(95).css('background-image', 'url(img/PNGS/clouds.png)')
-    $("div").eq(96).css('background-image', 'url(img/PNGS/clouds.png)')
-
-
+    $("div").eq(95).addClass("clouds").removeClass("sky");
 }
 clouds();
