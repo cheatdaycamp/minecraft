@@ -367,18 +367,18 @@ function tree() {
 
     $("div").eq(185).addClass("wood").removeClass("sky");
     $("div").eq(204).addClass("wood").removeClass("sky");
-    $("div").eq(223).addClass("wood").removeClass("sky");
+    $("div").eq(223).addClass("wood").removeClass("sky").removeClass("grass");
 }
 tree();
 
 function rock() {
-    $("div").eq(230).addClass("rock").removeClass("sky");
-    $("div").eq(240).addClass("rock").removeClass("sky");
+    $("div").eq(230).addClass("rock").removeClass("sky").removeClass("grass");
+    $("div").eq(240).addClass("rock").removeClass("sky").removeClass("grass");
     $("div").eq(219).addClass("rock").removeClass("sky");
     $("div").eq(218).addClass("rock").removeClass("sky");
     $("div").eq(217).addClass("rock").removeClass("sky");
     $("div").eq(199).addClass("rock").removeClass("sky");
-    $("div").eq(260).addClass("rock").removeClass("sky")
+    $("div").eq(260).addClass("rock").removeClass("sky").removeClass("earth");
 
 
 }
