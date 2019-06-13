@@ -6,6 +6,7 @@ $(document).ready(function() {
         };
 
         minecraft.bindMenuActions = function() {
+                //declaring variables inside the minecraft object:
                 minecraft.inventorySky = "",
                     minecraft.inventoryClouds,
                     minecraft.inventoryTnt,
@@ -17,35 +18,32 @@ $(document).ready(function() {
                     minecraft.inventoryLeaves,
                     minecraft.currentTool = "";
 
-
                 //Button - On Modal startGame - Starts new game
                 $('#btnStartGame').click(minecraft.startGame);
 
                 //Button - On Main - Resets the board
                 $('#btnReset').click(minecraft.resetMaterials);
 
-                $('.square').click(function() {
-                    // minecraft.removeMaterial.call(this);
-                    minecraft.buttonClassFade("square");
-
-                })
+                $('.square').click(function() { //buttons with class square: tool buttons, and material buttons.
+                        // minecraft.removeMaterial.call(this);
+                        minecraft.buttonClassFade("square");
+                    })
+                    // $('.temporaryclass').click(addRemoveBrick);
             } // end bind
 
         minecraft.buttonClassFade = function(someclass) {
-            console.log("entry tool: " + minecraft.currentTool)
             if (minecraft.currentTool !== event.target.id) {
                 minecraft.currentTool = event.target.id;
-                $(document.getElementsByClassName(someclass)).fadeTo('fast', '.2');
+                $(document.getElementsByClassName(someclass)).fadeTo('fast', '.5');
                 $(document.getElementById(minecraft.currentTool)).fadeTo("fast", 1);
                 console.log(minecraft.currentTool)
             }
             return minecraft.currentTool;
-
         }
 
-        minecraft.removeMaterial = function() {
+        // minecraft.addRemoveBrick = function() {
 
-        }
+        // }
 
         minecraft.startGame = function() {
             $('#welcomeScreen').addClass('opacity-0');

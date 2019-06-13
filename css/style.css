@@ -85,7 +85,7 @@ body {
 }
 
 .bkg-game01 {
-    background-color: #000;
+    background-image: ;
     height: 100vh;
     width: 100vw;
     animation: fadein 4s
@@ -115,13 +115,16 @@ button:visited {
     padding: 5px
 }
 
-.square {
+.caca {
+    margin: 5px 0px;
+}
+
+.btn-secondary .square {
     width: 40px;
     height: 40px;
     border-radius: 3px;
     display: block;
-    margin: 0 3px;
-    opacity: .7;
+    margin: 0 5px;
     border: 1px solid #fff;
     background-position: center center;
     background-repeat: no-repeat;
@@ -198,7 +201,7 @@ button:visited {
 }
 
 .square:hover {
-    opacity: 1;
+    opacity: .9;
     cursor: pointer;
     -webkit-box-shadow: 0 0 8px 1px rgba(255, 255, 255, 1);
     -moz-box-shadow: 0 0 8px 1px rgba(255, 255, 255, 1);
@@ -214,7 +217,6 @@ button:visited {
     position: relative;
     height: 400px;
     background-color: #fff;
-    opacity: 1;
     display: flex;
     flex-wrap: wrap;
     overflow: hidden;
@@ -230,6 +232,10 @@ button:visited {
 
 .borderDivs {
     background-color: red;
+}
+
+.mainbar {
+    z-index: 999
 }
 
 @keyframes fadein {
