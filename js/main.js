@@ -10,8 +10,8 @@ $(document).ready(function() {
                 minecraft.chosenTool;
                 minecraft.chosenMaterial;
                 minecraft.currentTool = "";
-                minecraft.widthChoosen = "",
-                    minecraft.heightChoosen = "";
+                minecraft.widthchosen = "",
+                    minecraft.heightchosen = "";
 
                 //main function to play
                 $('#canvas div').click(minecraft.playOnCanvas);
@@ -19,14 +19,8 @@ $(document).ready(function() {
                 //Button - On Modal startGame - Starts new game
                 $('#btnStartGame').click(minecraft.startGame);
 
-                //Button - On Main - Resets the board
-                $('#btnReset').click(minecraft.resetMaterials);
-
                 //User chooses a tool 
                 $(".squares").on("click", minecraft.selectTool);
-
-                //Button - On Modal startGame - Starts new game
-                $('#btnStartGame').click(minecraft.startGame);
 
                 //Button - On Main - Resets the board
                 $('#btnReset').click(minecraft.resetMaterials);
@@ -59,18 +53,13 @@ $(document).ready(function() {
             // minecraft.generateSquares();
         }
 
-        // function to reset the inventory
+        // function to reset the inventory, assigning quantity randomly.
         minecraft.resetMaterials = function() {
-            // add counters here
-            $('#clouds').html(2); //8
-            $('#earth').html(1); //5
-            $('#grass').html(1); //3
-            $('#rock').html(1); //4
-            $('#brick').html(1); //5
-            $('#wood').html(1); //3
-            $('#leaves').html(1); //1
-            $('#tnt').html(1); //3
+            $('#inventory .materialsIcons').each(function() {
+                $(this).html(Math.floor((Math.random() * 8) + 1))
+            })
         };
+
 
         minecraft.getInventory = function() {
             minecraft.counterClouds = (parseInt($('.wrapperToolPallete a.clouds').html()));
@@ -89,8 +78,7 @@ $(document).ready(function() {
             if (minecraft.currentTool == "clouds") {
                 if (minecraft.counterClouds > 0 && $(this).hasClass('sky')) {
                     $('#inventory div').css("border-color", "white");
-                    $(this).removeClass("sky");
-                    $(this).addClass("clouds").removeClass("sky");
+                    $(this).removeClass("sky", 400).$(this).addClass("clouds", 400);
                     minecraft.counterClouds--;
                     $('.wrapperToolPallete a.clouds').html(minecraft.counterClouds)
                 } else {
