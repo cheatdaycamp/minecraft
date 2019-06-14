@@ -68,162 +68,61 @@ $(document).ready(function() {
             minecraft.counterBrick = (parseInt($('#brick').html()));
         }
 
-        //main click function
-        minecraft.playOnCanvas = function() {
-            minecraft.getInventory();
-            if (minecraft.currentTool == "clouds") {
-                if (minecraft.counterClouds > 0 && $(this).hasClass('sky')) {
+        //retrieve material to canvas function
+        minecraft.useMaterial = function(material, counter, that) {
+            if (minecraft.currentTool == material) {
+                if (counter > 0 && $(that).hasClass('sky')) {
                     $('#inventory div').css("border-color", "white");
-                    $(this).removeClass("sky").addClass("clouds");
-                    minecraft.counterClouds--;
-                    $('#clouds').html(minecraft.counterClouds)
+                    var counterID = document.getElementById(material);
+                    $(that).removeClass("sky").addClass(`${material}`);
+                    counter--;
+                    $(counterID).html(counter);
                 } else {
-                    $('#clouds').css("border-color", "red");
-                }
-
-            } else if (minecraft.currentTool == "earth") {
-                if (minecraft.counterEarth > 0 && $(this).hasClass('sky')) {
-                    $('#inventory div').css("border-color", "white");
-                    $(this).removeClass("sky").addClass("earth");
-                    minecraft.counterEarth--;
-                    $('#earth').html(minecraft.counterEarth)
-                } else {
-                    $('#earth').css("border-color", "red");
-                }
-
-            } else if (minecraft.currentTool == "grass") {
-                if (minecraft.counterGrass > 0 && $(this).hasClass('sky')) {
-                    $('#inventory div').css("border-color", "white");
-                    $(this).removeClass("sky").addClass("grass");
-                    minecraft.counterGrass--;
-                    $('#grass').html(minecraft.counterGrass)
-                } else {
-                    $('#grass').css("border-color", "red");
-                }
-
-            } else if (minecraft.currentTool == "wood") {
-                if (minecraft.counterWood > 0 && $(this).hasClass('sky')) {
-                    $('#inventory div').css("border-color", "white");
-                    $(this).removeClass("sky").addClass("wood");
-                    minecraft.counterWood--;
-                    $('#wood').html(minecraft.counterWood)
-                } else {
-                    $('#wood').css("border-color", "red");
-                }
-
-            } else if (minecraft.currentTool == "rock") {
-                if (minecraft.counterRock > 0 && $(this).hasClass('sky')) {
-                    $('#inventory div').css("border-color", "white");
-                    $(this).removeClass("sky").addClass("rock");
-                    minecraft.counterRock--;
-                    $('#rock').html(minecraft.counterRock)
-                } else {
-                    $('#rock').css("border-color", "red");
-                }
-
-            } else if (minecraft.currentTool == "brick") {
-                if (minecraft.counterBrick > 0 && $(this).hasClass('sky')) {
-                    $('#inventory div').css("border-color", "white");
-                    $(this).removeClass("sky").addClass("brick");
-                    minecraft.counterBrick--;
-                    $('#brick').html(minecraft.counterBrick)
-                } else {
-                    $('#brick').css("border-color", "red");
-                }
-
-            } else if (minecraft.currentTool == "leaves") {
-                if (minecraft.counterLeaves > 0 && $(this).hasClass('sky')) {
-                    $('#inventory div').css("border-color", "white");
-                    $(this).removeClass("sky").addClass("leaves");
-                    minecraft.counterLeaves--;
-                    $('#leaves').html(minecraft.counterLeaves)
-                } else {
-                    $('#leaves').css("border-color", "red");
-                }
-
-            } else if (minecraft.currentTool == "tnt") {
-                if (minecraft.counterTnt > 0 && $(this).hasClass('sky')) {
-                    $('#inventory div').css("border-color", "white");
-                    $(this).removeClass("sky").addClass("tnt");
-                    minecraft.counterTnt--;
-                    $('#tnt').html(minecraft.counterTnt)
-                } else {
-                    $('#tnt').css("border-color", "red");
-                }
-
-            } else if (minecraft.currentTool == "toolAxe") {
-                if ($(this).hasClass("wood")) {
-                    $(this).removeClass("wood").addClass("sky");
-                    minecraft.counterWood++;
-                    $('#wood').html(minecraft.counterWood)
-                } else {
-                    $(this).css("border-color", "red");
-                    $('#wood').css("border-color", "red");
-                }
-                if ($(this).hasClass("leaves")) {
-                    $(this).removeClass("leaves").addClass("sky");
-                    minecraft.counterLeaves++;
-                    $('#leaves').html(minecraft.counterLeaves)
-
-                } else {
-                    $(this).css("border-color", "red");
-                    $('#leaves').css("border-color", "red");
-                }
-            } else if (minecraft.currentTool == "toolPick") {
-                if ($(this).hasClass("rock")) {
-                    $(this).removeClass("rock").addClass("sky");
-                    minecraft.counterRock++;
-                    $('#rock').html(minecraft.counterRock)
-
-                } else {
-                    $(this).css("border-color", "red");
-                    $('#rock').css("border-color", "red");
-                }
-                if ($(this).hasClass("brick")) {
-                    $(this).removeClass("brick").addClass("sky");
-                    minecraft.counterBrick++;
-                    $('#brick').html(minecraft.counterBrick)
-                } else {
-                    $(this).css("border-color", "red");
-                    $('#brick').css("border-color", "red");
-                }
-            } else if (minecraft.currentTool == "toolSword") {
-                if ($(this).hasClass("clouds")) {
-                    $(this).removeClass("clouds").addClass("sky");
-                    minecraft.counterClouds++;
-                    $('#clouds').html(minecraft.counterClouds)
-
-                } else {
-                    $(this).css("border-color", "red");
-                    $('#clouds').css("border-color", "red");
-                }
-                if ($(this).hasClass("tnt")) {
-                    $(this).removeClass("tnt").addClass("sky");
-                    minecraft.counterTnt++;
-                    $('#tnt').html(minecraft.counterTnt)
-                } else {
-                    $(this).css("border-color", "red");
-                    $('#tnt').css("border-color", "red");
-                }
-            } else if (minecraft.currentTool == "toolShovel") {
-                if ($(this).hasClass("earth")) {
-                    $(this).removeClass("earth").addClass("sky");
-                    minecraft.counterEarth++;
-                    $('#earth').html(minecraft.counterEarth)
-                } else {
-                    $(this).css("border-color", "red");
-                    $('#earth').css("border-color", "red");
-                }
-                if ($(this).hasClass("grass")) {
-                    $(this).removeClass("grass").addClass("sky");
-                    minecraft.counterGrass++;
-                    $('#grass').html(minecraft.counterGrass)
-
-                } else {
-                    $(this).css("border-color", "red");
-                    $('#grass').css("border-color", "red");
+                    $(counterID).css("border-color", "red");
                 }
             }
+        }
+
+        //grab material from canvas function
+        minecraft.useTool = function(tool, counter1, counter2, class1, class2, that) {
+            if (minecraft.currentTool == tool) {
+                if ($(that).hasClass(`${class1}`)) {
+                    $(that).removeClass(`${class1}`).addClass("sky");
+                    var counterID1 = document.getElementById(class1);
+                    counter1++;
+                    $(counterID1).html(counter1);
+                } else {
+                    $(that).css("border-color", "red");
+                    $(counterID2).css("border-color", "red");
+                }
+                if ($(that).hasClass(`${class2}`)) {
+                    $(that).removeClass(`${class2}`).addClass("sky");
+                    var counterID2 = document.getElementById(class2);
+                    counter2++;
+                    $(counterID2).html(counter2);
+                } else {
+                    $(that).css("border-color", "red");
+                    $(counterID2).css("border-color", "red");
+                }
+            }
+        }
+
+        minecraft.playOnCanvas = function() {
+            minecraft.getInventory();
+
+            var that = this;
+            minecraft.useMaterial("clouds", minecraft.counterClouds, that);
+            minecraft.useMaterial("earth", minecraft.counterEarth, that);
+            minecraft.useMaterial("grass", minecraft.counterGrass, that);
+            minecraft.useMaterial("wood", minecraft.counterWood, that);
+            minecraft.useMaterial("rock", minecraft.counterRock, that);
+            minecraft.useMaterial("brick", minecraft.counterBrick, that);
+            minecraft.useMaterial("leaves", minecraft.counterLeaves, that);
+            minecraft.useMaterial("tnt", minecraft.counterTnt, that);
+            minecraft.useTool("toolAxe", minecraft.counterWood, minecraft.counterLeaves, "wood", "leaves", that);
+            minecraft.useTool("toolPick", minecraft.counterBrick, minecraft.counterRock, "brick", "rock", that);
+            minecraft.useTool("toolSword", minecraft.counterClouds, minecraft.counterTnt, "clouds", "tnt", that);
+            minecraft.useTool("toolShovel", minecraft.counterEarth, minecraft.counterGrass, "earth", "grass", that);
         }
 
         minecraft.generateSquares = function() {
@@ -265,7 +164,6 @@ $(document).ready(function() {
 
             //randomTrees
             var amountOfTres = Math.floor(Math.random() * 4) + 1
-            console.log(amountOfTres)
             switch (amountOfTres) {
                 case 1:
                     minecraft.randomTree(20, 3);
@@ -321,8 +219,5 @@ $(document).ready(function() {
             ($(`.R_${11}.C_${(randomX-1)}`)).removeClass('sky').addClass("wood");
 
         }
-
         minecraft.start();
-
-
     }) //document readyx;5
