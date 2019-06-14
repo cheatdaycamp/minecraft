@@ -20,8 +20,8 @@ $(document).ready(function() {
 
                 //Button - On Modal startGame - Starts new game
                 $('#btnStartGame').click(minecraft.startGame);
-
-                //User chooses a tool 
+                $('#btnStartPlay').click(minecraft.startGame)
+                    //User chooses a tool 
                 $(".squares").on("click", minecraft.selectTool);
 
                 //Button - On Main - Resets the board
@@ -36,13 +36,14 @@ $(document).ready(function() {
 
         //Function to start the game
         minecraft.startGame = function() {
+            $('#audio')[0].play();
             $('#welcomeScreen').addClass('opacity-0');
             $('#mainScreen').show()
             $('#welcomeScreen').hide()
             minecraft.resetMaterials();
         }
 
-        //Function to grab the button
+        //Function to grab the actual button and fade away the remainning
         minecraft.buttonClassFade = function(someclass) {
             if (minecraft.currentTool !== event.target.id) {
                 minecraft.currentTool = event.target.id;
