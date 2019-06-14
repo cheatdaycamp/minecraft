@@ -11,21 +11,13 @@ $(document).ready(function() {
         minecraft.bindMenuActions = function() {
                 minecraft.currentTool = "";
 
-                //generating the board
-                minecraft.generateSquares();
-                minecraft.generateBoard();
-
-                //main function to play
-                $('#canvas div').click(minecraft.playOnCanvas);
-
-                //Button - On Modal startGame - Starts new game
+                //Buttons - StartGame: on welcome screen, on instructions, and reset.
                 $('#btnStartGame').click(minecraft.startGame);
-                $('#btnStartPlay').click(minecraft.startGame)
-                    //User chooses a tool 
-                $(".squares").on("click", minecraft.selectTool);
+                $('#btnStartPlay').click(minecraft.startGame);
+                $('#btnReset').click(minecraft.startGame);
 
-                //Button - On Main - Resets the board
-                $('#btnReset').click(minecraft.resetMaterials);
+                //User chooses a tool 
+                $(".squares").on("click", minecraft.selectTool);
 
                 //Function for the toolbox buttons
                 $('.square').click(function() {
@@ -40,7 +32,11 @@ $(document).ready(function() {
             $('#welcomeScreen').addClass('opacity-0');
             $('#mainScreen').show()
             $('#welcomeScreen').hide()
+                //generating the board
+            minecraft.generateSquares();
+            minecraft.generateBoard();
             minecraft.resetMaterials();
+            $('#canvas div').click(minecraft.playOnCanvas);
         }
 
         //Function to grab the actual button and fade away the remainning
@@ -130,6 +126,7 @@ $(document).ready(function() {
         }
 
         minecraft.generateSquares = function() {
+            $('#canvas').empty();
             var unitSize = "40px";
             minecraft.bricksOnWidth = parseInt($('#canvas').width() / parseInt(unitSize));
             minecraft.bricksOnHeight = parseInt($('#canvas').height() / parseInt(unitSize));
@@ -178,13 +175,13 @@ $(document).ready(function() {
                     break;
                 case 3:
                     minecraft.randomTree(7, 3);
-                    minecraft.randomTree(14, 9);
-                    minecraft.randomTree(20, 16);
+                    minecraft.randomTree(14, 11);
+                    minecraft.randomTree(20, 18);
                     break;
                 case 4:
                     minecraft.randomTree(5, 3);
                     minecraft.randomTree(10, 8);
-                    minecraft.randomTree(15, 14);
+                    minecraft.randomTree(15, 13);
                     minecraft.randomTree(20, 18);
                     break;
             }
