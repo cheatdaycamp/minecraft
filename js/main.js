@@ -1,6 +1,9 @@
 $(document).ready(function() {
+
+        //object that holds the whole functions:
         var minecraft = {};
 
+        //launching the bind
         minecraft.start = function() {
             minecraft.bindMenuActions();
         };
