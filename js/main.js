@@ -6,12 +6,11 @@ $(document).ready(function() {
         };
 
         minecraft.bindMenuActions = function() {
-
-                minecraft.chosenTool;
-                minecraft.chosenMaterial;
                 minecraft.currentTool = "";
-                minecraft.widthchosen = "",
-                    minecraft.heightchosen = "";
+
+                //generating the board
+                minecraft.generateSquares();
+                minecraft.generateBoard();
 
                 //main function to play
                 $('#canvas div').click(minecraft.playOnCanvas);
@@ -32,55 +31,52 @@ $(document).ready(function() {
 
             } // end bind
 
-        minecraft.buttonClassFade = function(someclass) {
-            if (minecraft.currentTool !== event.target.id) {
-                minecraft.currentTool = event.target.id;
-                $(document.getElementsByClassName(someclass)).fadeTo('fast', '.5');
-                $(document.getElementById(minecraft.currentTool)).fadeTo("fast", 1);
-                console.log(minecraft.currentTool)
-            }
-            return minecraft.currentTool;
-        }
-
-        minecraft.grabCanvas = function() {
-
-        }
+        //Function to start the game
         minecraft.startGame = function() {
             $('#welcomeScreen').addClass('opacity-0');
             $('#mainScreen').show()
             $('#welcomeScreen').hide()
             minecraft.resetMaterials();
-            // minecraft.generateSquares();
         }
 
-        // function to reset the inventory, assigning quantity randomly.
+        //Function to grab the button
+        minecraft.buttonClassFade = function(someclass) {
+            if (minecraft.currentTool !== event.target.id) {
+                minecraft.currentTool = event.target.id;
+                $(document.getElementsByClassName(someclass)).fadeTo('fast', '.5');
+                $(document.getElementById(minecraft.currentTool)).fadeTo("fast", 1);
+            }
+            return minecraft.currentTool;
+        }
+
+        // function to reset the inventory, assigning quantity randomly every time.
         minecraft.resetMaterials = function() {
             $('#inventory .materialsIcons').each(function() {
                 $(this).html(Math.floor((Math.random() * 8) + 1))
             })
         };
 
-
+        //grabbing the amount of each materials
         minecraft.getInventory = function() {
-            minecraft.counterClouds = (parseInt($('.wrapperToolPallete a.clouds').html()));
-            minecraft.counterTnt = (parseInt($('.wrapperToolPallete a.tnt').html()));
-            minecraft.counterEarth = (parseInt($('.wrapperToolPallete a.earth').html()));
-            minecraft.counterGrass = (parseInt($('.wrapperToolPallete a.grass').html()));
-            minecraft.counterWood = (parseInt($('.wrapperToolPallete a.wood').html()));
-            minecraft.counterLeaves = (parseInt($('.wrapperToolPallete a.leaves').html()));
-            minecraft.counterRock = (parseInt($('.wrapperToolPallete a.rock').html()));
-            minecraft.counterBrick = (parseInt($('.wrapperToolPallete a.brick').html()));
+            minecraft.counterClouds = (parseInt($('#clouds').html()));
+            minecraft.counterTnt = (parseInt($('#tnt').html()));
+            minecraft.counterEarth = (parseInt($('#earth').html()));
+            minecraft.counterGrass = (parseInt($('#grass').html()));
+            minecraft.counterWood = (parseInt($('#wood').html()));
+            minecraft.counterLeaves = (parseInt($('#leaves').html()));
+            minecraft.counterRock = (parseInt($('#rock').html()));
+            minecraft.counterBrick = (parseInt($('#brick').html()));
         }
 
-
+        //main click function
         minecraft.playOnCanvas = function() {
             minecraft.getInventory();
             if (minecraft.currentTool == "clouds") {
                 if (minecraft.counterClouds > 0 && $(this).hasClass('sky')) {
                     $('#inventory div').css("border-color", "white");
-                    $(this).removeClass("sky", 400).$(this).addClass("clouds", 400);
+                    $(this).removeClass("sky").addClass("clouds");
                     minecraft.counterClouds--;
-                    $('.wrapperToolPallete a.clouds').html(minecraft.counterClouds)
+                    $('#clouds').html(minecraft.counterClouds)
                 } else {
                     $('#clouds').css("border-color", "red");
                 }
@@ -88,10 +84,9 @@ $(document).ready(function() {
             } else if (minecraft.currentTool == "earth") {
                 if (minecraft.counterEarth > 0 && $(this).hasClass('sky')) {
                     $('#inventory div').css("border-color", "white");
-                    $(this).removeClass("sky");
-                    $(this).addClass("earth");
+                    $(this).removeClass("sky").addClass("earth");
                     minecraft.counterEarth--;
-                    $('.wrapperToolPallete a.earth').html(minecraft.counterEarth)
+                    $('#earth').html(minecraft.counterEarth)
                 } else {
                     $('#earth').css("border-color", "red");
                 }
@@ -99,10 +94,9 @@ $(document).ready(function() {
             } else if (minecraft.currentTool == "grass") {
                 if (minecraft.counterGrass > 0 && $(this).hasClass('sky')) {
                     $('#inventory div').css("border-color", "white");
-                    $(this).removeClass("sky");
-                    $(this).addClass("grass");
+                    $(this).removeClass("sky").addClass("grass");
                     minecraft.counterGrass--;
-                    $('.wrapperToolPallete a.grass').html(minecraft.counterGrass)
+                    $('#grass').html(minecraft.counterGrass)
                 } else {
                     $('#grass').css("border-color", "red");
                 }
@@ -110,10 +104,9 @@ $(document).ready(function() {
             } else if (minecraft.currentTool == "wood") {
                 if (minecraft.counterWood > 0 && $(this).hasClass('sky')) {
                     $('#inventory div').css("border-color", "white");
-                    $(this).removeClass("sky");
-                    $(this).addClass("wood");
+                    $(this).removeClass("sky").addClass("wood");
                     minecraft.counterWood--;
-                    $('.wrapperToolPallete a.wood').html(minecraft.counterWood)
+                    $('#wood').html(minecraft.counterWood)
                 } else {
                     $('#wood').css("border-color", "red");
                 }
@@ -121,10 +114,9 @@ $(document).ready(function() {
             } else if (minecraft.currentTool == "rock") {
                 if (minecraft.counterRock > 0 && $(this).hasClass('sky')) {
                     $('#inventory div').css("border-color", "white");
-                    $(this).removeClass("sky");
-                    $(this).addClass("rock");
+                    $(this).removeClass("sky").addClass("rock");
                     minecraft.counterRock--;
-                    $('.wrapperToolPallete a.rock').html(minecraft.counterRock)
+                    $('#rock').html(minecraft.counterRock)
                 } else {
                     $('#rock').css("border-color", "red");
                 }
@@ -132,10 +124,9 @@ $(document).ready(function() {
             } else if (minecraft.currentTool == "brick") {
                 if (minecraft.counterBrick > 0 && $(this).hasClass('sky')) {
                     $('#inventory div').css("border-color", "white");
-                    $(this).removeClass("sky");
-                    $(this).addClass("brick");
+                    $(this).removeClass("sky").addClass("brick");
                     minecraft.counterBrick--;
-                    $('.wrapperToolPallete a.brick').html(minecraft.counterBrick)
+                    $('#brick').html(minecraft.counterBrick)
                 } else {
                     $('#brick').css("border-color", "red");
                 }
@@ -143,10 +134,9 @@ $(document).ready(function() {
             } else if (minecraft.currentTool == "leaves") {
                 if (minecraft.counterLeaves > 0 && $(this).hasClass('sky')) {
                     $('#inventory div').css("border-color", "white");
-                    $(this).removeClass("sky");
-                    $(this).addClass("leaves");
+                    $(this).removeClass("sky").addClass("leaves");
                     minecraft.counterLeaves--;
-                    $('.wrapperToolPallete a.leaves').html(minecraft.counterLeaves)
+                    $('#leaves').html(minecraft.counterLeaves)
                 } else {
                     $('#leaves').css("border-color", "red");
                 }
@@ -154,29 +144,26 @@ $(document).ready(function() {
             } else if (minecraft.currentTool == "tnt") {
                 if (minecraft.counterTnt > 0 && $(this).hasClass('sky')) {
                     $('#inventory div').css("border-color", "white");
-                    $(this).removeClass("sky");
-                    $(this).addClass("tnt");
+                    $(this).removeClass("sky").addClass("tnt");
                     minecraft.counterTnt--;
-                    $('.wrapperToolPallete a.tnt').html(minecraft.counterTnt)
+                    $('#tnt').html(minecraft.counterTnt)
                 } else {
                     $('#tnt').css("border-color", "red");
                 }
 
             } else if (minecraft.currentTool == "toolAxe") {
                 if ($(this).hasClass("wood")) {
-                    $(this).removeClass("wood");
-                    $(this).addClass("sky");
+                    $(this).removeClass("wood").addClass("sky");
                     minecraft.counterWood++;
-                    $('.wrapperToolPallete a.wood').html(minecraft.counterWood)
+                    $('#wood').html(minecraft.counterWood)
                 } else {
                     $(this).css("border-color", "red");
                     $('#wood').css("border-color", "red");
                 }
                 if ($(this).hasClass("leaves")) {
-                    $(this).removeClass("leaves");
-                    $(this).addClass("sky");
+                    $(this).removeClass("leaves").addClass("sky");
                     minecraft.counterLeaves++;
-                    $('.wrapperToolPallete a.leaves').html(minecraft.counterLeaves)
+                    $('#leaves').html(minecraft.counterLeaves)
 
                 } else {
                     $(this).css("border-color", "red");
@@ -184,220 +171,158 @@ $(document).ready(function() {
                 }
             } else if (minecraft.currentTool == "toolPick") {
                 if ($(this).hasClass("rock")) {
-                    $(this).removeClass("rock");
-                    $(this).addClass("sky");
+                    $(this).removeClass("rock").addClass("sky");
                     minecraft.counterRock++;
-                    $('.wrapperToolPallete a.rock').html(minecraft.counterRock)
+                    $('#rock').html(minecraft.counterRock)
 
                 } else {
                     $(this).css("border-color", "red");
                     $('#rock').css("border-color", "red");
                 }
                 if ($(this).hasClass("brick")) {
-                    $(this).removeClass("brick");
-                    $(this).addClass("sky");
+                    $(this).removeClass("brick").addClass("sky");
                     minecraft.counterBrick++;
-                    $('.wrapperToolPallete a.brick').html(minecraft.counterBrick)
+                    $('#brick').html(minecraft.counterBrick)
                 } else {
                     $(this).css("border-color", "red");
                     $('#brick').css("border-color", "red");
                 }
             } else if (minecraft.currentTool == "toolSword") {
                 if ($(this).hasClass("clouds")) {
-                    $(this).removeClass("clouds");
-                    $(this).addClass("sky");
+                    $(this).removeClass("clouds").addClass("sky");
                     minecraft.counterClouds++;
-                    $('.wrapperToolPallete a.clouds').html(minecraft.counterClouds)
+                    $('#clouds').html(minecraft.counterClouds)
 
                 } else {
                     $(this).css("border-color", "red");
                     $('#clouds').css("border-color", "red");
                 }
                 if ($(this).hasClass("tnt")) {
-                    $(this).removeClass("tnt");
-                    $(this).addClass("sky");
+                    $(this).removeClass("tnt").addClass("sky");
                     minecraft.counterTnt++;
-                    $('.wrapperToolPallete a.tnt').html(minecraft.counterTnt)
+                    $('#tnt').html(minecraft.counterTnt)
                 } else {
                     $(this).css("border-color", "red");
                     $('#tnt').css("border-color", "red");
                 }
             } else if (minecraft.currentTool == "toolShovel") {
                 if ($(this).hasClass("earth")) {
-                    $(this).removeClass("earth");
-                    $(this).addClass("sky");
+                    $(this).removeClass("earth").addClass("sky");
                     minecraft.counterEarth++;
-                    $('.wrapperToolPallete a.earth').html(minecraft.counterEarth)
+                    $('#earth').html(minecraft.counterEarth)
                 } else {
                     $(this).css("border-color", "red");
                     $('#earth').css("border-color", "red");
                 }
                 if ($(this).hasClass("grass")) {
-                    $(this).removeClass("grass");
-                    $(this).addClass("sky");
+                    $(this).removeClass("grass").addClass("sky");
                     minecraft.counterGrass++;
-                    $('.wrapperToolPallete a.grass').html(minecraft.counterGrass)
+                    $('#grass').html(minecraft.counterGrass)
 
                 } else {
                     $(this).css("border-color", "red");
                     $('#grass').css("border-color", "red");
                 }
             }
-
         }
 
         minecraft.generateSquares = function() {
-            var unitSize = "40px",
-                bricksOnWidth = parseInt($('#canvas').width() / parseInt(unitSize)),
-                bricksOnHeight = parseInt($('#canvas').height() / parseInt(unitSize)),
-                canvasArea = bricksOnWidth * bricksOnHeight
-            console.log(canvasArea);
-            for (var i = 0; i < canvasArea; i++) {
-                $('#canvas').append($('<div>', { class: 'sky' }));
+            var unitSize = "40px";
+            minecraft.bricksOnWidth = parseInt($('#canvas').width() / parseInt(unitSize));
+            minecraft.bricksOnHeight = parseInt($('#canvas').height() / parseInt(unitSize));
+            canvasArea = minecraft.bricksOnWidth * minecraft.bricksOnHeight;
+            for (var i = 0; i < minecraft.bricksOnHeight; i++) {
+                for (var j = 0; j < minecraft.bricksOnWidth; j++) {
+                    var id = `R_${(parseInt([i]) + 1)} C_${(parseInt([j]) + 1)}`;
+                    $("#canvas").append($(`<div class="${id} tile materialsIcons sky"></div>`))
+                }
+                $('#canvas div').height(unitSize);
+                $('#canvas div').width(unitSize);
             }
-            $('#canvas div').width(unitSize);
-            $('#canvas div').height(unitSize);
+        }
+
+        minecraft.generateBoard = function() {
+
+            // generating grass line
+            $('.R_12').removeClass("sky").addClass("grass");
+            var height = minecraft.bricksOnHeight;
+            // generating earth
+            for (var i = height; i > 11; i--) {
+                $(`.R_${[i]}`).removeClass("sky").addClass("earth");
+            }
+            // generating random rocks
+            var max = minecraft.bricksOnHeight;
+            var min = minecraft.bricksOnHeight - 4;
+            var randomRocks = Math.floor(Math.random() * (5 - 2 + 1)) + 2;
+            for (var i = 0; i < randomRocks; i++) {
+                var randomX = (Math.floor((Math.random() * minecraft.bricksOnWidth) + 1));
+                var randomY = Math.floor(Math.random() * (max - min + 1)) + min;
+                ($(`.R_${[randomY]}.C_${[randomX]}`)).removeClass('earth', "rock", "grass").addClass("rock");
+            }
+
+            //random cloud
+            minecraft.randomCloud(20, 6)
+
+            //randomTrees
+            var amountOfTres = Math.floor(Math.random() * 4) + 1
+            console.log(amountOfTres)
+            switch (amountOfTres) {
+                case 1:
+                    minecraft.randomTree(20, 3);
+                    break;
+                case 2:
+                    minecraft.randomTree(10, 3);
+                    minecraft.randomTree(20, 14);
+                    break;
+                case 3:
+                    minecraft.randomTree(7, 3);
+                    minecraft.randomTree(14, 9);
+                    minecraft.randomTree(20, 16);
+                    break;
+                case 4:
+                    minecraft.randomTree(5, 3);
+                    minecraft.randomTree(10, 8);
+                    minecraft.randomTree(15, 14);
+                    minecraft.randomTree(20, 18);
+                    break;
+            }
+        }
+
+        minecraft.randomCloud = function(max, min) {
+            var randomX = Math.floor(Math.random() * (max - min + 1)) + min;
+            var H = Math.floor(Math.random() * (2 - 0 + 1)) + 0;
+            ($(`.R_${5-H}.C_${(randomX)}`)).removeClass('sky').addClass("clouds");
+            ($(`.R_${5-H}.C_${(randomX-1)}`)).removeClass('sky').addClass("clouds");
+            ($(`.R_${5-H}.C_${(randomX)-2}`)).removeClass('sky').addClass("clouds");
+            ($(`.R_${5-H}.C_${(randomX)-3}`)).removeClass('sky').addClass("clouds");
+            ($(`.R_${5-H}.C_${(randomX)-4}`)).removeClass('sky').addClass("clouds");
+            ($(`.R_${4-H}.C_${(randomX)}`)).removeClass('sky').addClass("clouds");
+            ($(`.R_${4-H}.C_${(randomX-1)}`)).removeClass('sky').addClass("clouds");
+            ($(`.R_${4-H}.C_${(randomX)-2}`)).removeClass('sky').addClass("clouds");
+            ($(`.R_${4-H}.C_${(randomX)-3}`)).removeClass('sky').addClass("clouds");
+            ($(`.R_${3-H}.C_${(randomX)-1}`)).removeClass('sky').addClass("clouds");
+        }
+
+
+        minecraft.randomTree = function(max, min) {
+            var H = Math.floor(Math.random() * (2 - 0 + 1)) + 0;
+            var randomX = Math.floor(Math.random() * (max - min + 1)) + min;
+            ($(`.R_${7+H}.C_${(randomX)}`)).removeClass('sky').addClass("leaves");
+            ($(`.R_${7+H}.C_${(randomX-1)}`)).removeClass('sky').addClass("leaves");
+            ($(`.R_${7+H}.C_${(randomX-2)}`)).removeClass('sky').addClass("leaves");
+            ($(`.R_${8+H}.C_${(randomX)}`)).removeClass('sky').addClass("leaves");
+            ($(`.R_${8+H}.C_${(randomX-1)}`)).removeClass('sky').addClass("wood");
+            ($(`.R_${8+H}.C_${(randomX-2)}`)).removeClass('sky').addClass("leaves");
+            ($(`.R_${6+H}.C_${(randomX)}`)).removeClass('sky').addClass("leaves");
+            ($(`.R_${6+H}.C_${(randomX-1)}`)).removeClass('sky').addClass("leaves");
+            ($(`.R_${6+H}.C_${(randomX-2)}`)).removeClass('sky').addClass("leaves");
+            ($(`.R_${9}.C_${(randomX-1)}`)).removeClass('sky').addClass("wood");
+            ($(`.R_${10}.C_${(randomX-1)}`)).removeClass('sky').addClass("wood");
+            ($(`.R_${11}.C_${(randomX-1)}`)).removeClass('sky').addClass("wood");
 
         }
 
         minecraft.start();
 
-    }) //document readyx;
 
-//added
-class Arraynew {
-    constructor(length) {
-        this.length = length;
-    }
-    createArray() {
-        var arraynew2 = [];
-        for (var i = 0; i < this.length; i++) {
-            arraynew2.push(i);
-        }
-        return arraynew2;
-    }
-    matrix(array) {
-        var outerArray = this.createArray();
-        var innerArray = array.createArray();
-        for (var i = 0; i < this.length; i++) {
-            outerArray.splice(i, 1, innerArray);
-        }
-        return outerArray;
-    }
-}
-var array1 = new Arraynew(50);
-var array2 = new Arraynew(18);
-
-var matrixBackground = array1.matrix(array2);
-
-function createTiles(array) {
-    for (var i = 0; i < array.length; i++) {
-        $('#canvas').append('<div class="second_' + 1 + i + ' tile sky materialsIcons" ></div>');
-
-
-        for (var j = 0; j < array[i].length; j++) {
-
-            $('#canvas').append('<div class="second_' + 1 + i + ' tile sky materialsIcons" ></div>');
-
-
-        }
-    }
-}
-createTiles(matrixBackground);
-
-//added tarek
-
-function grass() {
-    for (var i = 111; i < 112; i++) {
-
-        var grass = $(".second_" + i);
-        grass.removeClass("sky");
-        grass.addClass("grass");
-    }
-}
-grass();
-
-function earth() {
-    for (var i = 112; i < 300; i++) {
-
-        var earth = $(".second_" + i);
-        earth.removeClass("sky");
-        earth.addClass("earth");
-    }
-}
-earth();
-
-function tree() {
-    $("div").eq(117).addClass("leaves").removeClass("sky");
-    $("div").eq(118).addClass("leaves").removeClass("sky");
-    $("div").eq(119).addClass("leaves").removeClass("sky");
-    $("div").eq(136).addClass("leaves").removeClass("sky");
-    $("div").eq(137).addClass("leaves").removeClass("sky");
-    $("div").eq(138).addClass("leaves").removeClass("sky");
-    $("div").eq(155).addClass("leaves").removeClass("sky");
-    $("div").eq(157).addClass("leaves").removeClass("sky");
-
-    $("div").eq(156).addClass("wood").removeClass("sky");
-    $("div").eq(175).addClass("wood").removeClass("sky");
-    $("div").eq(194).addClass("wood").removeClass("sky");
-    $("div").eq(213).addClass("wood").removeClass("sky");
-
-
-    $("div").eq(186).addClass("leaves").removeClass("sky");
-    $("div").eq(184).addClass("leaves").removeClass("sky");
-    $("div").eq(146).addClass("leaves").removeClass("sky");
-    $("div").eq(148).addClass("leaves").removeClass("sky");
-    $("div").eq(147).addClass("leaves").removeClass("sky");
-    $("div").eq(165).addClass("leaves").removeClass("sky");
-    $("div").eq(166).addClass("leaves").removeClass("sky");
-    $("div").eq(167).addClass("leaves").removeClass("sky");
-
-
-    $("div").eq(185).addClass("wood").removeClass("sky");
-    $("div").eq(204).addClass("wood").removeClass("sky");
-    $("div").eq(223).addClass("wood").removeClass("sky").removeClass("grass");
-}
-tree();
-
-function rock() {
-    $("div").eq(230).addClass("rock").removeClass("sky").removeClass("grass");
-    $("div").eq(240).addClass("rock").removeClass("sky").removeClass("grass");
-    $("div").eq(219).addClass("rock").removeClass("sky");
-    $("div").eq(218).addClass("rock").removeClass("sky");
-    $("div").eq(217).addClass("rock").removeClass("sky");
-    $("div").eq(199).addClass("rock").removeClass("sky");
-    $("div").eq(260).addClass("rock").removeClass("sky").removeClass("earth");
-
-
-}
-rock();
-
-function clouds() {
-    $("div").eq(47).addClass("clouds").removeClass("sky");
-    $("div").eq(48).addClass("clouds").removeClass("sky");
-    $("div").eq(49).addClass("clouds").removeClass("sky");
-
-    $("div").eq(65).addClass("clouds").removeClass("sky");
-    $("div").eq(66).addClass("clouds").removeClass("sky");
-    $("div").eq(67).addClass("clouds").removeClass("sky");
-    $("div").eq(68).addClass("clouds").removeClass("sky");
-    $("div").eq(69).addClass("clouds").removeClass("sky");
-
-
-    $("div").eq(85).addClass("clouds").removeClass("sky");
-    $("div").eq(86).addClass("clouds").removeClass("sky");
-    $("div").eq(87).addClass("clouds").removeClass("sky");
-
-    $("div").eq(57).addClass("clouds").removeClass("sky");
-    $("div").eq(94).addClass("clouds").removeClass("sky");
-    $("div").eq(93).addClass("clouds").removeClass("sky");
-    $("div").eq(92).addClass("clouds").removeClass("sky");
-    $("div").eq(74).addClass("clouds").removeClass("sky");
-    $("div").eq(75).addClass("clouds").removeClass("sky");
-    $("div").eq(77).addClass("clouds").removeClass("sky");
-    $("div").eq(76).addClass("clouds").removeClass("sky");
-
-
-    $("div").eq(95).addClass("clouds").removeClass("sky");
-}
-clouds();
+    }) //document readyx;5
