@@ -14,7 +14,8 @@
     padding-left: 0;
     margin-block-start: 0;
     margin-block-end: 0;
-    letter-spacing: .15em
+    letter-spacing: .15em;
+    box-sizing: border-box;
 }
 
 [class*=col-] {
@@ -46,8 +47,8 @@ body {
 
 .logoMinecraft {
     display: block;
-    height: 80vmin;
-    width: 80vmin
+    height: 60vmin;
+    width: 60vmin
 }
 
 .logoholder {
@@ -150,7 +151,8 @@ button:visited {
     margin: 0;
     padding: 0;
     height: 100vh;
-    flex-grow: 1
+    flex-grow: 1;
+    overflow-x: hidden;
 }
 
 .wrapperToolPallete {
@@ -159,10 +161,11 @@ button:visited {
     height: 100%;
     justify-content: center;
     width: 200px;
-    background-image: url(../img/woodtexture.jpg);
+    background-color: white;
+    /* background-image: url(../img/woodtexture.jpg);
     background-size: 100% auto;
     background-repeat: repeat-y;
-    align-items: center
+    align-items: center */
 }
 
 .wrapperCanvas {
@@ -186,12 +189,12 @@ button:visited {
 }
 
 .square {
-    width: 40px;
-    height: 40px;
+    width: 70px;
+    height: 70px;
     border-radius: 3px;
     display: block;
     margin: 2px;
-    border: 1px solid #fff;
+    border: 1px solid black;
     background-position: center center;
     background-repeat: no-repeat;
     background-color: #000
@@ -338,11 +341,10 @@ button:visited {
     }
     .wrapperToolPallete {
         flex-direction: row;
-        height: 80px;
         flex-grow: 1;
         width: 100%;
         background-size: 15%;
-        background-repeat: repeat-x
+        background-repeat: repeat-y
     }
     .wrapperCanvas {
         flex-direction: column
@@ -389,28 +391,28 @@ button:visited {
 
 @-webkit-keyframes breathing {
     0% {
-        -webkit-transform: scale(0.9);
-        transform: scale(0.9);
+        -webkit-transform: scale(0.95);
+        transform: scale(0.95);
     }
     25% {
         -webkit-transform: scale(1);
         transform: scale(1);
     }
     60% {
-        -webkit-transform: scale(0.9);
-        transform: scale(0.9);
+        -webkit-transform: scale(0.95);
+        transform: scale(0.95);
     }
     100% {
-        -webkit-transform: scale(0.9);
-        transform: scale(0.9);
+        -webkit-transform: scale(0.95);
+        transform: scale(0.95);
     }
 }
 
 @keyframes breathing {
     0% {
-        -webkit-transform: scale(0.9);
-        -ms-transform: scale(0.9);
-        transform: scale(0.9);
+        -webkit-transform: scale(0.95);
+        -ms-transform: scale(0.95);
+        transform: scale(0.95);
     }
     25% {
         -webkit-transform: scale(1);
@@ -418,13 +420,13 @@ button:visited {
         transform: scale(1);
     }
     60% {
-        -webkit-transform: scale(0.9);
-        -ms-transform: scale(0.9);
-        transform: scale(0.9);
+        -webkit-transform: scale(0.95);
+        -ms-transform: scale(0.95);
+        transform: scale(0.95);
     }
     100% {
-        -webkit-transform: scale(0.9);
-        -ms-transform: scale(0.9);
-        transform: scale(0.9);
+        -webkit-transform: scale(0.95);
+        -ms-transform: scale(0.95);
+        transform: scale(0.95);
     }
 }
