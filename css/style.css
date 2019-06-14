@@ -261,6 +261,13 @@ button:visited {
     background-image: url(../img/PNGS/tnt.png)
 }
 
+.redBorderEffect{
+    border: 1px solid red;
+    background-color: red;
+    opacity: 0.5;
+s
+}
+
 .modal {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
