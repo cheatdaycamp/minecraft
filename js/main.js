@@ -72,17 +72,21 @@ $(document).ready(function() {
         minecraft.useMaterial = function(material, counter, that) {
             if (minecraft.currentTool == material) {
                 if (counter > 0 && $(that).hasClass('sky')) {
-                    $('.square.materialsIcons').css("border-color", "black");
                     var counterID = document.getElementById(material);
-                    $(that).removeClass("sky").addClass(`${material}`);
+                    $(this).fadeIn("slow", function() {
+                        $(that).addClass(`${material}`);
+                    });
+                    $(that).removeClass("sky");
                     counter--;
                     $(counterID).html(counter);
+                    $(`#${material}`).addClass('greenBorderEffect');
+                    setTimeout(function() {
+                        $(`#${material}`).removeClass('greenBorderEffect');
+                    }, 300);
                 } else {
-                    $(`#${minecraft.currentTool}`).removeClass(`${material}`);
                     $(`#${minecraft.currentTool}`).addClass('redBorderEffect');
                     setTimeout(function() {
                         $(`#${minecraft.currentTool}`).removeClass('redBorderEffect');
-                        $(`#${minecraft.currentTool}`).addClass(`${material}`);
                     }, 300);;
                 }
             }
@@ -96,11 +100,25 @@ $(document).ready(function() {
                     var counterID1 = document.getElementById(class1);
                     counter1++;
                     $(counterID1).html(counter1);
+                    $(`#${class1}`).addClass('greenBorderEffect');
+                    $(`#${class1}`).fadeTo('fast', '1');
+                    setTimeout(function() {
+                        $(`#${class1}`).fadeTo('fast', '.5');
+                        $(`#${class1}`).removeClass('greenBorderEffect');
+                    }, 300);
+
                 } else if ($(that).hasClass(`${class2}`)) {
                     $(that).removeClass(`${class2}`).addClass("sky");
                     var counterID2 = document.getElementById(class2);
                     counter2++;
                     $(counterID2).html(counter2);
+                    $(`#${class2}`).addClass('greenBorderEffect');
+                    $(`#${class2}`).fadeTo('fast', '1');
+                    setTimeout(function() {
+                        $(`#${class2}`).fadeTo('fast', '.5');
+                        $(`#${class2}`).removeClass('greenBorderEffect');
+                    }, 300);
+
                 } else {
                     $(`#${minecraft.currentTool}`).addClass('redBorderEffect');
                     setTimeout(function() {
@@ -113,7 +131,6 @@ $(document).ready(function() {
 
         minecraft.playOnCanvas = function() {
             minecraft.getInventory();
-
             var that = this;
             minecraft.useMaterial("clouds", minecraft.counterClouds, that);
             minecraft.useMaterial("earth", minecraft.counterEarth, that);
@@ -149,21 +166,23 @@ $(document).ready(function() {
             $('.R_12').removeClass("sky").addClass("grass");
             var height = minecraft.bricksOnHeight;
             // generating earth
-            for (var i = height; i > 11; i--) {
+            for (var i = height; i > 12; i--) {
                 $(`.R_${[i]}`).removeClass("sky").addClass("earth");
             }
-            // generating random amount of rocks between 5-2
-            var randomRocks = Math.floor(Math.random() * (5 - 2 + 1)) + 2; // for the quantity
+            // generating random amount of rocks between 10-2
+            var randomRocks = Math.floor(Math.random() * (10 - 2 + 1)) + 2; // for the quantity
 
             // for setting the Y maximum height 
             var max = minecraft.bricksOnHeight,
                 min = minecraft.bricksOnHeight - 4;
+            //randomizing the locations
             for (var i = 0; i < randomRocks; i++) {
                 var randomX = (Math.floor((Math.random() * minecraft.bricksOnWidth) + 1));
                 var randomY = Math.floor(Math.random() * (max - min + 1)) + min;
-                ($(`.R_${[randomY]}.C_${[randomX]}`)).removeClass('earth', "rock", "grass").addClass("rock");
+                ($(`.R_${[randomY]}.C_${[randomX]}`)).removeClass("rock");
+                ($(`.R_${[randomY]}.C_${[randomX]}`)).removeClass("grass");
+                ($(`.R_${[randomY]}.C_${[randomX]}`)).removeClass("earth").addClass("rock");
             }
-
             // 2 random clouds
             minecraft.randomCloud(20, 15);
             minecraft.randomCloud(10, 5);
