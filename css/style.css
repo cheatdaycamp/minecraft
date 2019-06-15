@@ -273,6 +273,7 @@ button:visited {
 .materialsIcons {
     background-size: 100%;
     text-align: center;
+    border: transparent;
     font-size: 18pt;
     transition: all 0.5s ease;
 }
@@ -369,7 +370,7 @@ button:visited {
 }
 
 #canvas div:hover {
-    border: 1px solid #000;
+    border: 1px solid white;
     cursor: pointer
 }
 
