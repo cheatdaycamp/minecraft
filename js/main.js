@@ -16,15 +16,15 @@ $(document).ready(function() {
                 $('#btnStartPlay').click(minecraft.startGame);
                 $('#btnReset').click(minecraft.startGame);
 
-        //User chooses a tool 
-        $(".squares").on("click", minecraft.selectTool);
+                //User chooses a tool 
+                $(".squares").on("click", minecraft.selectTool);
 
                 //Function for the toolbox buttons
                 $('.square').click(function() {
                     minecraft.buttonClassFade("square")
                 });
 
-    } // end bind
+            } // end bind
 
         //Function to start the game
         minecraft.startGame = function() {
@@ -49,10 +49,9 @@ $(document).ready(function() {
             return minecraft.currentTool;
         }
 
-
         // function to reset the inventory, assigning quantity randomly every time.
         minecraft.resetMaterials = function() {
-            $('#inventory .materialsIcons').each(function() {
+            $('.square.materialsIcons').each(function() {
                 $(this).html(Math.floor((Math.random() * 8) + 1))
             })
         }
@@ -73,7 +72,7 @@ $(document).ready(function() {
         minecraft.useMaterial = function(material, counter, that) {
             if (minecraft.currentTool == material) {
                 if (counter > 0 && $(that).hasClass('sky')) {
-                    $('#inventory div').css("border-color", "white");
+                    $('.square.materialsIcons').css("border-color", "black");
                     var counterID = document.getElementById(material);
                     $(that).removeClass("sky").addClass(`${material}`);
                     counter--;
@@ -129,25 +128,19 @@ $(document).ready(function() {
         minecraft.generateSquares = function() {
             $('#canvas').empty();
             var unitSize = "40px";
-            minecraft.bricksOnWidth = parseInt($('#canvas').width() / parseInt(unitSize));
-            minecraft.bricksOnHeight = parseInt($('#canvas').height() / parseInt(unitSize));
+            minecraft.bricksOnWidth = 800 / parseInt(unitSize)
+            minecraft.bricksOnHeight = 640 / parseInt(unitSize);
             canvasArea = minecraft.bricksOnWidth * minecraft.bricksOnHeight;
             for (var i = 0; i < minecraft.bricksOnHeight; i++) {
                 for (var j = 0; j < minecraft.bricksOnWidth; j++) {
                     var id = `R_${(parseInt([i]) + 1)} C_${(parseInt([j]) + 1)}`;
                     $("#canvas").append($(`<div class="${id} tile materialsIcons sky"></div>`))
                 }
-                $('#canvas div').height(unitSize);
-                $('#canvas div').width(unitSize);
+
             }
         }
-        $('#canvas div').width(unitSize);
-        $('#canvas div').height(unitSize);
-
-    }
 
         minecraft.generateBoard = function() {
-
             // generating grass line
             $('.R_12').removeClass("sky").addClass("grass");
             var height = minecraft.bricksOnHeight;
@@ -155,20 +148,23 @@ $(document).ready(function() {
             for (var i = height; i > 11; i--) {
                 $(`.R_${[i]}`).removeClass("sky").addClass("earth");
             }
-            // generating random rocks
-            var max = minecraft.bricksOnHeight;
-            var min = minecraft.bricksOnHeight - 4;
-            var randomRocks = Math.floor(Math.random() * (5 - 2 + 1)) + 2;
+            // generating random amount of rocks between 5-2
+            var randomRocks = Math.floor(Math.random() * (5 - 2 + 1)) + 2; // for the quantity
+
+            // for setting the Y maximum height 
+            var max = minecraft.bricksOnHeight,
+                min = minecraft.bricksOnHeight - 4;
             for (var i = 0; i < randomRocks; i++) {
                 var randomX = (Math.floor((Math.random() * minecraft.bricksOnWidth) + 1));
                 var randomY = Math.floor(Math.random() * (max - min + 1)) + min;
                 ($(`.R_${[randomY]}.C_${[randomX]}`)).removeClass('earth', "rock", "grass").addClass("rock");
             }
 
-            //random cloud
-            minecraft.randomCloud(20, 6)
+            // 2 random clouds
+            minecraft.randomCloud(20, 15);
+            minecraft.randomCloud(10, 5);
 
-            //randomTrees
+            //randomTrees between 1-4
             var amountOfTres = Math.floor(Math.random() * 4) + 1
             switch (amountOfTres) {
                 case 1:
