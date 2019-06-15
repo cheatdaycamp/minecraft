@@ -68,7 +68,7 @@ $(document).ready(function() {
             minecraft.counterBrick = (parseInt($('#brick').html()));
         }
 
-        //retrieve material to canvas function
+        //paint to canvas 
         minecraft.useMaterial = function(material, counter, that) {
             if (minecraft.currentTool == material) {
                 if (counter > 0 && $(that).hasClass('sky')) {
@@ -78,12 +78,17 @@ $(document).ready(function() {
                     counter--;
                     $(counterID).html(counter);
                 } else {
-                    $(counterID).css("border-color", "red");
+                    $(`#${minecraft.currentTool}`).removeClass(`${material}`);
+                    $(`#${minecraft.currentTool}`).addClass('redBorderEffect');
+                    setTimeout(function() {
+                        $(`#${minecraft.currentTool}`).removeClass('redBorderEffect');
+                        $(`#${minecraft.currentTool}`).addClass(`${material}`);
+                    }, 300);;
                 }
             }
         }
 
-        //grab material from canvas function
+        //grab from canvas 
         minecraft.useTool = function(tool, counter1, counter2, class1, class2, that) {
             if (minecraft.currentTool == tool) {
                 if ($(that).hasClass(`${class1}`)) {
@@ -91,21 +96,20 @@ $(document).ready(function() {
                     var counterID1 = document.getElementById(class1);
                     counter1++;
                     $(counterID1).html(counter1);
-                } else {
-                    $(that).css("border-color", "red");
-                    $(counterID2).css("border-color", "red");
-                }
-                if ($(that).hasClass(`${class2}`)) {
+                } else if ($(that).hasClass(`${class2}`)) {
                     $(that).removeClass(`${class2}`).addClass("sky");
                     var counterID2 = document.getElementById(class2);
                     counter2++;
                     $(counterID2).html(counter2);
                 } else {
-                    $(that).css("border-color", "red");
-                    $(counterID2).css("border-color", "red");
+                    $(`#${minecraft.currentTool}`).addClass('redBorderEffect');
+                    setTimeout(function() {
+                        $(`#${minecraft.currentTool}`).removeClass('redBorderEffect');
+                    }, 300);;
                 }
             }
         }
+
 
         minecraft.playOnCanvas = function() {
             minecraft.getInventory();
