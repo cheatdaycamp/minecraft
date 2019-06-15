@@ -16,15 +16,15 @@ $(document).ready(function() {
                 $('#btnStartPlay').click(minecraft.startGame);
                 $('#btnReset').click(minecraft.startGame);
 
-                //User chooses a tool 
-                $(".squares").on("click", minecraft.selectTool);
+        //User chooses a tool 
+        $(".squares").on("click", minecraft.selectTool);
 
                 //Function for the toolbox buttons
                 $('.square').click(function() {
                     minecraft.buttonClassFade("square")
                 });
 
-            } // end bind
+    } // end bind
 
         //Function to start the game
         minecraft.startGame = function() {
@@ -49,12 +49,13 @@ $(document).ready(function() {
             return minecraft.currentTool;
         }
 
+
         // function to reset the inventory, assigning quantity randomly every time.
         minecraft.resetMaterials = function() {
             $('#inventory .materialsIcons').each(function() {
                 $(this).html(Math.floor((Math.random() * 8) + 1))
             })
-        };
+        }
 
         //grabbing the amount of each materials
         minecraft.getInventory = function() {
@@ -140,6 +141,10 @@ $(document).ready(function() {
                 $('#canvas div').width(unitSize);
             }
         }
+        $('#canvas div').width(unitSize);
+        $('#canvas div').height(unitSize);
+
+    }
 
         minecraft.generateBoard = function() {
 

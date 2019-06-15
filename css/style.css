@@ -47,8 +47,15 @@ body {
 
 .logoMinecraft {
     display: block;
-    height: 60vmin;
-    width: 60vmin
+    height: 80vmin;
+    width: 80vmin;
+    -webkit-transition: -webkit-transform .8s ease-in-out;
+    transition: transform .8s ease-in-out;
+}
+
+.logoMinecraft:hover {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
 }
 
 .logoholder {
@@ -204,6 +211,47 @@ button:visited {
     text-shadow: 0 0 8px #fff
 }
 
+.tnt:hover {
+    animation: shake 0.5s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes shake {
+    0% {
+        transform: translate(1px, 1px) rotate(0deg);
+    }
+    10% {
+        transform: translate(-1px, -2px) rotate(-1deg);
+    }
+    20% {
+        transform: translate(-3px, 0px) rotate(1deg);
+    }
+    30% {
+        transform: translate(3px, 2px) rotate(0deg);
+    }
+    40% {
+        transform: translate(1px, -1px) rotate(1deg);
+    }
+    50% {
+        transform: translate(-1px, 2px) rotate(-1deg);
+    }
+    60% {
+        transform: translate(-3px, 1px) rotate(0deg);
+    }
+    70% {
+        transform: translate(3px, 1px) rotate(-1deg);
+    }
+    80% {
+        transform: translate(-1px, -1px) rotate(1deg);
+    }
+    90% {
+        transform: translate(1px, 2px) rotate(0deg);
+    }
+    100% {
+        transform: translate(1px, -2px) rotate(-1deg);
+    }
+}
+
 .materialsIcons {
     background-size: 100%
 }
@@ -264,6 +312,16 @@ button:visited {
     background-image: url(../img/PNGS/tnt.png)
 }
 
+.redBorderEffect {
+    border: 1px solid red;
+    background-color: red;
+    opacity: 0.5;
+}
+
+.whiteBorderEffect {
+    border-color: white;
+}
+
 .modal {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -294,7 +352,6 @@ button:visited {
     display: flex;
     flex-wrap: wrap;
     overflow: hidden;
-    webkit-box-shadow: 0 0 82px -24px #fff;
     -moz-box-shadow: 0 0 82px -24px #fff;
     box-shadow: 0 0 82px -24px #fff;
 }
