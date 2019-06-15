@@ -54,7 +54,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Instructions</h5>
+                    <h5 class="modal-title">HOW TO CREATE YOUR OWN WORLD:</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
  <span aria-hidden="true">&times;</span>
  </button>
@@ -63,7 +63,7 @@
                     Pick a <b>brick</b> or a <b>rock</b> with a <b>Pick</b>, Dig the <b>earth</b> and the <b>grass</b> with your <b>Shovel</b>, with the <b>Axe</b> you have full control of the <b>tree</b>, but it is the <b>Sword</b> that gives you power
                     over the <b>clouds</b> and <b>TnT</b> <br> <br> WATCH YOUR INVENTORY!
                 </div>
-                <div class="modal-footer">
+                <div class="modal-footer"><span id="footer-text">YOU HAVE BEEN GIVEN TOOLS AND MATERIALS TO BUILD YOUR WORLD. USE THE TOOLS TO COLLECT MATERIALS, AND SELECT AND PLACE THESE MATERIALS ON THE BOARD. WATCH FOR THE RED AND GREEN SIGNALS WHICH INDICATE THE RULES. </span> 
                     <button type="button" class="btn-type2" data-dismiss="modal" id="btnStartPlay">PLAY</button>
                 </div>
             </div>
@@ -82,16 +82,14 @@
 
         <!--TOOL PALLETTE -->
         <div class="wrapperToolPallete">
-            <!-- TOOLS -->
-            <div class="flex-center-center">
+            <div class="toolContainer flex-center-center">
+                <!-- TOOLS -->
                 <a class="square toolsIcons toolShovel" id="toolShovel"></a>
                 <a class="square toolsIcons toolAxe" id="toolAxe"></a>
                 <a class="square toolsIcons toolPick" id="toolPick"></a>
                 <a class="square toolsIcons toolSword" id="toolSword"></a>
-            </div>
-            <!-- TOOLS -->
-            <!-- INVENTORY -->
-            <div class="flex-center-center text-center" id="inventory">
+                <!-- TOOLS -->
+                <!-- INVENTORY -->
                 <a class="square materialsIcons textShadowSmall clouds" id="clouds"></a>
                 <a class="square materialsIcons textShadowSmall earth" id="earth"></a>
                 <a class="square materialsIcons textShadowSmall grass" id="grass"></a>
@@ -100,10 +98,8 @@
                 <a class="square materialsIcons textShadowSmall wood" id="wood"></a>
                 <a class="square materialsIcons textShadowSmall leaves" id="leaves"></a>
                 <a class="square materialsIcons textShadowSmall tnt" id="tnt"></a>
-            </div>
-            <!-- INVENTORY -->
-            <!-- BUTTONS -->
-            <div class="flex-center-center">
+                <!-- INVENTORY -->
+                <!-- BUTTONS -->
                 <a class="btn-type2" data-toggle="modal" data-target="#ModalInstructions">
                     <span class="fullText"> Instructions</span>
                     <span class="minimizedToIcon"> <i class="fas fa-question"></i></span>
@@ -112,8 +108,8 @@
                     <span class="fullText">Reset</span>
                     <span class="minimizedToIcon"><i class="fas fa-redo-alt"></i></span>
                 </a>
+                <!-- BUTTONS -->
             </div>
-            <!-- BUTTONS -->
         </div>
         <!--TOOL PALLETTE -->
     </main>
