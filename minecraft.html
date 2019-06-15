@@ -23,7 +23,6 @@
     <!--CSS-->
 </head>
 
-
 <body>
     <!--WELCOME SCREEN -->
     <div class="wrapper bkg-landing" id="welcomeScreen">
@@ -35,11 +34,20 @@
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ModalInstructions">Instructions</button>
             </div>
         </div>
-        <div class="logoholder">
+        <div class="logoholder breathing-button">
             <img class="logoMinecraft" alt="logo" src="./img/logo.png">
         </div>
     </div>
     <!--WELCOME SCREEN -->
+
+    <!--COIN SOUND ON START -->
+    <div class="row" style="width:0px; height:0px">
+        <audio controls id="audio" width=0px height=0px style="visibility: hidden">
+            <source src="./audio/coin.mp3" type="audio/mpeg">
+            <source src="./audio/coin.mp3" type="audio/ogg">
+                   </audio>
+    </div>
+    <!--COIN SOUND ON START -->
 
     <!-- Modal: Instructions -->
     <div class="modal fade" id="ModalInstructions" tabindex="-1" role="dialog" aria-hidden="true">
@@ -56,7 +64,7 @@
                     over the <b>clouds</b> and <b>TnT</b> <br> <br> WATCH YOUR INVENTORY!
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn-type2" data-dismiss="modal">PLAY</button>
+                    <button type="button" class="btn-type2" data-dismiss="modal" id="btnStartPlay">PLAY</button>
                 </div>
             </div>
         </div>
@@ -108,10 +116,8 @@
             <!-- BUTTONS -->
         </div>
         <!--TOOL PALLETTE -->
-
     </main>
     <!--Main Screen -->
-
 
     <!--BOOTSTRAP JAVASCRIPT-->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
