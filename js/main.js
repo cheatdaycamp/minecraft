@@ -93,6 +93,8 @@ $(document).ready(function () {
                 $(this).addClass("clouds").removeClass("sky");
                 minecraft.counterClouds--;
                 $('.wrapperToolPallete a.clouds').html(minecraft.counterClouds)
+                $(this).css("border-color", "white");
+
             } else {
                 $('#clouds').addClass('redBorderEffect');
                 setTimeout(function () {
@@ -107,6 +109,8 @@ $(document).ready(function () {
                 $(this).addClass("earth");
                 minecraft.counterEarth--;
                 $('.wrapperToolPallete a.earth').html(minecraft.counterEarth)
+                $(this).css("border-color", "white");
+
             } else {
                 $('#earth').addClass('redBorderEffect');
                 setTimeout(function () {
@@ -121,6 +125,8 @@ $(document).ready(function () {
                 $(this).addClass("grass");
                 minecraft.counterGrass--;
                 $('.wrapperToolPallete a.grass').html(minecraft.counterGrass)
+                $(this).css("border-color", "white");
+
             } else {
                 $('#grass').addClass('redBorderEffect');
                 setTimeout(function () {
@@ -135,6 +141,8 @@ $(document).ready(function () {
                 $(this).addClass("wood");
                 minecraft.counterWood--;
                 $('.wrapperToolPallete a.wood').html(minecraft.counterWood)
+                $(this).css("border-color", "white");
+
             } else {
                 $('#wood').addClass('redBorderEffect');
                 setTimeout(function () {
@@ -149,6 +157,8 @@ $(document).ready(function () {
                 $(this).addClass("rock");
                 minecraft.counterRock--;
                 $('.wrapperToolPallete a.rock').html(minecraft.counterRock)
+                $(this).css("border-color", "white");
+
             } else {
                 $('#rock').addClass('redBorderEffect');
                 setTimeout(function () {
@@ -163,6 +173,8 @@ $(document).ready(function () {
                 $(this).addClass("brick");
                 minecraft.counterBrick--;
                 $('.wrapperToolPallete a.brick').html(minecraft.counterBrick)
+                $(this).css("border-color", "white");
+
             } else {
                 $('#brick').addClass('redBorderEffect');
                 setTimeout(function () {
@@ -177,6 +189,8 @@ $(document).ready(function () {
                 $(this).addClass("leaves");
                 minecraft.counterLeaves--;
                 $('.wrapperToolPallete a.leaves').html(minecraft.counterLeaves)
+                $(this).css("border-color", "white");
+
             } else {
                 $('#leaves').addClass('redBorderEffect');
                 setTimeout(function () {
@@ -191,6 +205,8 @@ $(document).ready(function () {
                 $(this).addClass("tnt");
                 minecraft.counterTnt--;
                 $('.wrapperToolPallete a.tnt').html(minecraft.counterTnt)
+                $(this).css("border-color", "white");
+
             } else {
                 $('#tnt').addClass('redBorderEffect');
                 setTimeout(function () {
@@ -211,6 +227,7 @@ $(document).ready(function () {
                 $(this).addClass("sky");
                 minecraft.counterLeaves++;
                 $('.wrapperToolPallete a.leaves').html(minecraft.counterLeaves)
+                $(this).css("border-color", "white");
 
             } else {
                 $('#toolAxe').addClass('redBorderEffect');
@@ -225,12 +242,16 @@ $(document).ready(function () {
                 $(this).addClass("sky");
                 minecraft.counterRock++;
                 $('.wrapperToolPallete a.rock').html(minecraft.counterRock)
+                $(this).css("border-color", "white");
+
             }
             else if ($(this).hasClass("brick")) {
                 $(this).removeClass("brick");
                 $(this).addClass("sky");
                 minecraft.counterBrick++;
                 $('.wrapperToolPallete a.brick').html(minecraft.counterBrick)
+                $(this).css("border-color", "white");
+
             } else {
                 $('#toolPick').addClass('redBorderEffect');
                 setTimeout(function () {
@@ -244,12 +265,15 @@ $(document).ready(function () {
                 $(this).addClass("sky");
                 minecraft.counterClouds++;
                 $('.wrapperToolPallete a.clouds').html(minecraft.counterClouds)
+                $(this).css("border-color", "white");
+
             }
             else if ($(this).hasClass("tnt")) {
                 $(this).removeClass("tnt");
                 $(this).addClass("sky");
                 minecraft.counterTnt++;
                 $('.wrapperToolPallete a.tnt').html(minecraft.counterTnt)
+                $(this).css("border-color", "white");
             }
             else {
                 $('#toolSword').addClass('redBorderEffect');
@@ -264,12 +288,16 @@ $(document).ready(function () {
                 $(this).addClass("sky");
                 minecraft.counterEarth++;
                 $('.wrapperToolPallete a.earth').html(minecraft.counterEarth)
+                $(this).css("border-color", "white");
+
             }
            else if ($(this).hasClass("grass")) {
                 $(this).removeClass("grass");
                 $(this).addClass("sky");
                 minecraft.counterGrass++;
                 $('.wrapperToolPallete a.grass').html(minecraft.counterGrass)
+                $(this).css("border-color", "white");
+
             } else {
 
                 $('#toolShovel').addClass('redBorderEffect');
