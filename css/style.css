@@ -25,7 +25,8 @@
 
 html {
     height: 100vh;
-    width: 100vw
+    width: 100vw;
+    overflow: scroll
 }
 
 body {
@@ -93,10 +94,7 @@ body {
     text-shadow: 0 0 15px #000
 }
 
-.btn-primary:active,
-.btn-primary:focus,
-.btn-type2:active,
-.btn-type2:focus {
+.btn-primary:active, .btn-primary:focus, .btn-type2:active, .btn-type2:focus {
     outline: 0;
     border: 0 transparent;
     background: 0 0
@@ -130,8 +128,7 @@ body {
     animation: fadein 4s
 }
 
-a:visited,
-button:visited {
+a:visited, button:visited {
     text-decoration: none
 }
 
@@ -159,6 +156,8 @@ button:visited {
     padding: 0;
     height: 100vh;
     flex-grow: 1;
+    height:min-content;
+    overflow: auto;
 }
 
 .wrapperToolPallete {
@@ -272,8 +271,8 @@ button:visited {
 
 .materialsIcons {
     background-size: 100%;
+    border: white;
     text-align: center;
-    border: transparent;
     font-size: 18pt;
     transition: all 0.5s ease;
 }
@@ -343,8 +342,7 @@ button:visited {
     user-select: none
 }
 
-#instructionsText,
-#footer-text {
+#instructionsText, #footer-text {
     font-family: monospace;
     line-height: 1.5rem;
     font-size: 1.5rem
@@ -371,7 +369,6 @@ button:visited {
 
 #canvas div:hover {
     border: 1px solid white;
-    cursor: pointer
 }
 
 .minimizedToIcon {
@@ -432,11 +429,13 @@ button:visited {
     .fullText {
         display: none
     }
+    .square {
+        width: 30px;
+        height: 30px;
+    }
     .minimizedToIcon {
         display: flex;
         align-items: center;
-        width: 70px;
-        height: 70px;
         border-radius: 3px;
         margin: 2px;
         border: 1px solid #fff;
@@ -493,5 +492,118 @@ button:visited {
         -webkit-transform: scale(0.95);
         -ms-transform: scale(0.95);
         transform: scale(0.95);
+    }
+}
+
+@media (min-width: 319.98px) {
+    .wrapperCanvas{
+        overflow-y: scroll;
+    }
+    .square, .minimizedToIcon {
+        width: 30px;
+        height: 30px;
+    }
+    #canvas {
+        width: 300px;
+        height: 240px;
+    }
+    .tile {
+        width: 15px;
+        height: 15px;
+    }
+}
+
+@media (min-width: 401px) {
+    .square, .minimizedToIcon {
+        width: 30px;
+        height: 30px;
+    }
+    #canvas {
+        width: 380px;
+        height: 304px;
+    }
+    .tile {
+        width: 19px;
+        height: 19px;
+    }
+    .wrapperGame{
+        overflow-y: scroll;
+        overflow-x: scroll;
+    }
+}
+
+@media (min-width: 576px) {
+    .square, .minimizedToIcon {
+        width: 30px;
+        height: 30px;
+    }
+    #canvas {
+        width: 480px;
+        height: 384px;
+    }
+    .tile {
+        width: 24px;
+        height: 24px;
+    }
+    .wrapperGame{
+        overflow-y: scroll;
+        overflow-x: scroll;
+    }
+}
+
+@media (min-width: 768px) {
+    .square, .minimizedToIcon {
+        width: 30px;
+        height: 30px;
+    }
+    #canvas {
+        width: 600px;
+        height: 480px;
+    }
+    .tile {
+        width: 30px;
+        height: 30px;
+    }
+    .wrapperGame{
+        overflow-y: scroll;
+        overflow-x: scroll;
+    }
+}
+
+@media (min-width: 992px) {
+    .square, .minimizedToIcon {
+        width: 70px;
+        height: 70px;
+    }
+    #canvas {
+        width: 800px;
+        height: 640px;
+    }
+    .tile {
+        width: 40px;
+        height: 40px;
+    }
+    .wrapperGame{
+        overflow-y: scroll;
+        overflow-x: scroll;
+    }
+}
+
+@media (min-width: 1200px) {
+    .square, .minimizedToIcon {
+        width: 70px;
+        height: 70px;
+    }
+    #canvas {
+        width: 800px;
+        height: 640px;
+    }
+    .tile {
+        width: 40px;
+        height: 40px;
+    }
+    .wrapperGame{
+        overflow-y: scroll;
+        overflow-x: scroll;
     }
 }
