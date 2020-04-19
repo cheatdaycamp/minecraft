@@ -15,7 +15,7 @@
     margin-block-start: 0;
     margin-block-end: 0;
     letter-spacing: .15em;
-    box-sizing: border-box;
+    box-sizing: border-box!important
 }
 
 [class*=col-] {
@@ -26,20 +26,16 @@
 html {
     height: 100vh;
     width: 100vw;
-    overflow: scroll
 }
 
 body {
     margin: 0;
-    height: 100vh;
-    width: 100vw;
+    height: 100%;
     font-family: Minecraft;
+    display: flex;
     justify-content: center;
     align-items: center;
-    display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center
 }
 
 .wrapper .landingPageButtonWrapper {
@@ -73,8 +69,6 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     transition: all .4s ease-in-out;
-    width: 100%;
-    height: 100%
 }
 
 .btn-primary {
@@ -145,7 +139,8 @@ a:visited, button:visited {
     flex-direction: column;
     margin: 0;
     padding: 0;
-    height: 100vh
+    flex-grow: 1;
+    width:100%;
 }
 
 .wrapperGame {
@@ -167,10 +162,6 @@ a:visited, button:visited {
     justify-content: center;
     width: 200px;
     background-color: white;
-    /* background-image: url(../img/woodtexture.jpg);
-    background-size: 100% auto;
-    background-repeat: repeat-y;
-    align-items: center */
 }
 
 .wrapperCanvas {
@@ -496,9 +487,6 @@ a:visited, button:visited {
 }
 
 @media (min-width: 319.98px) {
-    .wrapperCanvas{
-        overflow-y: scroll;
-    }
     .square, .minimizedToIcon {
         width: 30px;
         height: 30px;
@@ -526,10 +514,7 @@ a:visited, button:visited {
         width: 19px;
         height: 19px;
     }
-    .wrapperGame{
-        overflow-y: scroll;
-        overflow-x: scroll;
-    }
+
 }
 
 @media (min-width: 576px) {
@@ -545,10 +530,7 @@ a:visited, button:visited {
         width: 24px;
         height: 24px;
     }
-    .wrapperGame{
-        overflow-y: scroll;
-        overflow-x: scroll;
-    }
+
 }
 
 @media (min-width: 768px) {
@@ -564,10 +546,7 @@ a:visited, button:visited {
         width: 30px;
         height: 30px;
     }
-    .wrapperGame{
-        overflow-y: scroll;
-        overflow-x: scroll;
-    }
+
 }
 
 @media (min-width: 992px) {
@@ -583,10 +562,7 @@ a:visited, button:visited {
         width: 40px;
         height: 40px;
     }
-    .wrapperGame{
-        overflow-y: scroll;
-        overflow-x: scroll;
-    }
+
 }
 
 @media (min-width: 1200px) {
@@ -602,8 +578,5 @@ a:visited, button:visited {
         width: 40px;
         height: 40px;
     }
-    .wrapperGame{
-        overflow-y: scroll;
-        overflow-x: scroll;
-    }
+
 }
